@@ -1,15 +1,28 @@
+//! React dependencies
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//! Components
+import Landing from "./component/dynamic/Landing";
+import Header from "./component/static/Header";
+import Favourites from "./component/dynamic/Favourites";
+import About from "./component/dynamic/About";
+
 function App() {
    return (
-      <React.Fragment>
-         <h1> Main render</h1>
-         <p>
-            {" "}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi veritatis consequatur
-            incidunt repellat, minima ipsum sequi tenetur sapiente ipsam alias ab, iusto corrupti,
-            amet beatae eius delectus ullam voluptas quia?
-         </p>
-      </React.Fragment>
+      <Router>
+         <React.Fragment>
+            {/* All contents of the app will render inside the wrapper */}
+            <div className="wrapper">
+               <Switch>
+                  <Route path="/" exact component={Landing} />
+                  <Route path="/favourites" component={Favourites} />
+                  <Route path="/about" component={About} />
+               </Switch>
+            </div>
+         </React.Fragment>
+         <Header />
+      </Router>
    );
 }
 

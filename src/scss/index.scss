@@ -1,0 +1,33 @@
+//! Imports
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+@import "./globals.scss";
+
+//! Normalize
+@import "normalize";
+
+//! Partials
+@import "./static/header";
+
+html {
+   * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      transition: all 0.1s ease-in;
+      font-family: "Montserrat", sans-serif;
+   }
+}
+
+//! <--- Mobile --->
+body {
+   border: 2px dashed red;
+   width: 100%;
+   height: auto;
+   .wrapper {
+      border: 1px solid blue;
+      //* <--- takes account the offset of the header which is 75px in height --->
+      margin-top: 75px;
+      //* <--- takes account the height of the navigation bar on the bottom of the page 50px --->
+      margin-bottom: 45px;
+   }
+}
