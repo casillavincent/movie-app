@@ -7,11 +7,13 @@ import Landing from "./component/dynamic/Landing";
 import Header from "./component/static/Header";
 import Favourites from "./component/dynamic/Favourites";
 import About from "./component/dynamic/About";
+import Footer from "./component/static/Footer";
 
 function App() {
    return (
       <Router>
          <React.Fragment>
+            <Header />
             {/* All contents of the app will render inside the wrapper */}
             <div className="wrapper">
                <Switch>
@@ -20,8 +22,8 @@ function App() {
                   <Route path="/about" component={About} />
                </Switch>
             </div>
+            <Footer />
          </React.Fragment>
-         <Header />
       </Router>
    );
 }

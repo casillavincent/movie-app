@@ -7,7 +7,8 @@
 
 //! Partials
 @import "./static/header";
-
+@import "./static/footer";
+@import "./dynamic/landing";
 html {
    * {
       margin: 0px;
@@ -15,19 +16,25 @@ html {
       box-sizing: border-box;
       transition: all 0.1s ease-in;
       font-family: "Montserrat", sans-serif;
+      scroll-behavior: smooth;
    }
 }
 
 //! <--- Mobile --->
 body {
-   border: 2px dashed red;
    width: 100%;
-   height: auto;
+   background-color: $col1;
+   //* <--- takes account the offset of the header which is 75px in height --->
+   margin-top: 75px;
+   //* <--- takes account the height of the navigation bar on the bottom of the page 50px --->
+   margin-bottom: 45px;
    .wrapper {
-      border: 1px solid blue;
-      //* <--- takes account the offset of the header which is 75px in height --->
-      margin-top: 75px;
-      //* <--- takes account the height of the navigation bar on the bottom of the page 50px --->
-      margin-bottom: 45px;
+      width: inherit;
+   }
+}
+//! <--- Tablet --->
+@media screen and (min-width: 1050px) {
+   body {
+      margin-bottom: 0px;
    }
 }

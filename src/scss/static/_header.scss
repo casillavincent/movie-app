@@ -11,6 +11,10 @@ header {
    position: fixed;
    top: 0px;
    left: 0px;
+   z-index: 999;
+   h1 {
+      text-transform: uppercase;
+   }
    //* <--- Links --->
    .links {
       display: none;
@@ -29,6 +33,37 @@ header {
       align-items: center;
       a {
          color: white;
+      }
+   }
+}
+//! <--- Tablet --->
+@media screen and (min-width: 1050px) {
+   header {
+      .links {
+         display: flex;
+         width: 300px;
+         font-weight: $subHeading;
+         ul {
+            display: inherit;
+            justify-content: space-between;
+            align-items: center;
+            width: inherit;
+            li,
+            a {
+               list-style-type: none;
+               text-decoration: none;
+               color: white;
+            }
+            //* <--- about page ---->
+            li:nth-child(3) {
+               background-color: $accent;
+               padding: 5px;
+               border-radius: 2px;
+            }
+         }
+      }
+      .mobile-links {
+         display: none;
       }
    }
 }

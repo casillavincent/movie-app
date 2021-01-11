@@ -1,0 +1,72 @@
+@import "../globals.scss";
+//! <--- Mobile --->
+.landing {
+   background-image: url("https://www.themoviedb.org/t/p/original/d2UxKyaJ5GgzuHaSsWinFfv3g6L.jpg");
+   @include backdrop-prop;
+   width: 100%;
+   height: 100vh;
+   z-index: -1;
+
+   .wrapper {
+      color: white;
+      background-color: rgba($col1, 0.6);
+      backdrop-filter: $defBlur;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .content {
+         display: inherit;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         width: 400px;
+         margin: auto;
+         h1 {
+            font-weight: $subHeading;
+            font-size: 40px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: $accent;
+         }
+         p {
+            font-size: 20px;
+            font-weight: $text;
+         }
+         button {
+            padding: 10px;
+            border-radius: 5px;
+            border-style: none;
+            background-color: $accent;
+            margin-top: 30px;
+            a {
+               color: white;
+               text-decoration: none;
+            }
+            &:hover {
+               background-color: magenta;
+            }
+         }
+      }
+   }
+}
+//! <--- Tablet --->
+@media screen and (min-width: 1050px) {
+   .landing {
+      .wrapper {
+         .content {
+            height: 500px;
+            width: 750px;
+            h1 {
+               font-size: 50px;
+            }
+            p {
+               font-size: 25px;
+            }
+         }
+      }
+   }
+}

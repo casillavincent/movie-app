@@ -5,3 +5,13 @@ $text: 300;
 
 //! <--- Pallete ---->
 $col1: #1b1e2b;
+$accent: red;
+
+//! Misc
+$defBlur: blur(3px);
+//! <--- Mixins ---->
+@mixin backdrop-prop {
+   background-position: center;
+   background-size: cover;
+   background-attachment: fixed;
+}

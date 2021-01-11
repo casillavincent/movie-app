@@ -1,0 +1,61 @@
+@import "../globals.scss";
+
+//! <--- Mobile --->
+footer {
+   color: white;
+   background-color: $col1;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   height: 100px;
+   font-weight: $text;
+   //* All Columns
+   .column {
+      padding: 15px;
+      .footer-large-text {
+         font-size: 12px;
+      }
+      .footer-normal-text {
+         font-size: 12px;
+      }
+   }
+
+   //* Column 01
+   .column01 {
+      .react-logo {
+         display: flex;
+      }
+   }
+
+   //* Column 02
+   .column02 {
+      text-align: center;
+   }
+
+   //* Column 03
+   .column03 {
+      text-align: right;
+      .social-menu {
+         display: flex;
+         flex-direction: row-reverse;
+         .social-menu-github,
+         .social-menu-email,
+         .social-menu-linkedin {
+            margin-left: 7px;
+            cursor: pointer;
+         }
+      }
+   }
+}
+
+//! <---- Tablet/Desktop ----->
+@media screen and (min-width: 1050px) {
+   footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+   }
+} ;

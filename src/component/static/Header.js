@@ -17,7 +17,6 @@ const Header = () => {
                <li>
                   <Link to={"/"}>Home</Link>
                </li>
-               <li className="browse">Browse</li>
 
                {/* Favourites */}
                <li>
