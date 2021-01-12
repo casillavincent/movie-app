@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {} from "react-icons/fa";
 import { FaPlus, FaHome, FaSearch, FaUserAstronaut } from "react-icons/fa";
 
 const Header = () => {
+   //? <-------- utility for toggling the sidebar in mobile mode --------->
+   const toggleSidebar = () => {
+      const sidebar = document.body.querySelector("aside");
+      sidebar.classList.toggle("sidebar-on");
+   };
    return (
       <header>
          {/* Logo */}
@@ -35,7 +39,13 @@ const Header = () => {
                <FaHome size="1.5em" />
             </Link>
             {/* Search */}
-            <FaSearch className="browse" size="1.5em" />
+            <FaSearch
+               className="browse"
+               size="1.5em"
+               onClick={() => {
+                  toggleSidebar();
+               }}
+            />
             {/* Favourites */}
             <Link to={"/favourites"} className="icon">
                <FaPlus size="1.5em" />

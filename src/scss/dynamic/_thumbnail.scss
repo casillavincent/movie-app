@@ -1,0 +1,74 @@
+@import "../globals.scss";
+//! <----- Mobile ------>
+.thumbnail {
+   width: 200px;
+   color: $col1;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   //* Poster
+   .poster {
+      img {
+         width: 100%;
+         border-top-left-radius: 3px;
+         border-top-right-radius: 3px;
+      }
+   }
+   //* Info
+   .info {
+      color: $col1;
+      background-color: white;
+      padding: 6px;
+      height: 150px;
+      h2 {
+         color: $col1;
+         font-size: 16px;
+         font-weight: $heading;
+         width: 150px;
+         white-space: nowrap;
+         overflow-x: hidden;
+         text-overflow: ellipsis;
+      }
+      .release-date {
+         color: $col1;
+         font-size: 12px;
+         margin-bottom: 10px;
+      }
+      .short-overview {
+         color: $col1;
+         font-size: 14px;
+         font-style: italic;
+      }
+      .action-btns {
+         display: none;
+         color: $col1;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-around;
+         height: 40px;
+         width: 180px;
+         margin: auto;
+         div p {
+            display: none;
+         }
+         //Rating
+         span {
+            color: white;
+            background-color: $col1;
+            padding: 2px 5px 2px 5px;
+            border-radius: 3px;
+         }
+      }
+   }
+}
+//! <---- tablet ----->
+@media screen and (min-width: 1050px) {
+   .thumbnail {
+      .info {
+      }
+      &:hover {
+      }
+   }
+}

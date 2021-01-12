@@ -7,11 +7,11 @@ footer {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
-   align-items: center;
+   align-items: flex-start;
    width: 100%;
-   height: 100px;
+   height: 120px;
    font-weight: $text;
-   position: relative;
+
    //* All Columns
    .column {
       padding: 15px;
@@ -58,9 +58,5 @@ footer {
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      background-color: transparent;
-      position: fixed;
-      bottom: 0px;
-      left: 0px;
    }
 } ;

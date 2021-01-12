@@ -9,7 +9,7 @@ $col2: #2a2d3e;
 $accent: lightgreen;
 
 //! Misc
-$defBlur: blur(3px);
+$defBlur: blur(10px);
 //! <--- Mixins ---->
 @mixin backdrop-prop {
    background-position: center;

@@ -1,0 +1,109 @@
+@import "../globals.scss";
+.render {
+   color: white;
+   width: 100%;
+   //* <---- compensate for height of header ------>
+   margin-top: 75px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   .featured {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background-image: url("https://www.themoviedb.org/t/p/original/yK20evDYkI4ET0EY2fIsKsNF6Ip.jpg");
+      background-size: cover;
+      width: 100%;
+      height: 300px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+      figcaption {
+         margin-left: 20px;
+         margin-bottom: 25px;
+         h2 {
+            font-weight: $heading;
+            font-size: 20px;
+            margin-bottom: 1px;
+         }
+         ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 210px;
+            margin-bottom: 15px;
+            li {
+               list-style-type: none;
+            }
+         }
+         button {
+            color: white;
+            background-color: transparent;
+            border-style: none;
+            border: 2px solid white;
+            padding: 5px 10px 5px 10px;
+            a {
+               color: white;
+               text-decoration: none;
+            }
+            &:hover {
+               border: 2px solid $accent;
+               color: $accent;
+               a {
+                  color: $accent;
+               }
+            }
+         }
+      }
+   }
+   // <----- where components render ------>
+   .titles {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      h2 {
+         margin-top: 20px;
+         margin-bottom: 15px;
+      }
+      .render-titles {
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         grid-gap: 20px;
+         margin-right: 25px;
+      }
+   }
+}
+
+//! <------ Tablet ----->
+@media screen and (min-width: 750px) {
+   .render {
+      margin: 75px auto auto auto;
+      .titles {
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: center;
+         background-color: white;
+         .render-titles {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+            margin: 0px;
+            padding: 0px;
+            margin-bottom: 20px;
+         }
+      }
+   }
+}
+
+@media screen and (min-width: 1050px) {
+   .render {
+      margin: 0px;
+      padding: 0px;
+   }
+}

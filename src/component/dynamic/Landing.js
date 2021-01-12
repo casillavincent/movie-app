@@ -7,7 +7,7 @@ const Landing = () => {
 
    return (
       <div className="landing">
-         <div className="wrapper">
+         <div className="landing-wrapper">
             <div className="content">
                <h1>Butter.db</h1>
                <p>Get updates on the movies you want to see!</p>
