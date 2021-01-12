@@ -9,14 +9,18 @@
 
    .wrapper {
       color: white;
-      background-color: rgba($col1, 0.6);
+      background-color: rgba($col1, 0.8);
       backdrop-filter: $defBlur;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      z-index: 0;
 
       .content {
          display: inherit;
@@ -35,19 +39,47 @@
          p {
             font-size: 20px;
             font-weight: $text;
+            margin-bottom: 20px;
          }
-         button {
-            padding: 10px;
-            border-radius: 5px;
-            border-style: none;
-            background-color: $accent;
-            margin-top: 30px;
-            a {
-               color: white;
-               text-decoration: none;
-            }
-            &:hover {
-               background-color: magenta;
+         .hotlinks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 25px;
+            .popular,
+            .top-rated,
+            .upcoming,
+            .now-playing {
+               width: 150px;
+               height: 150px;
+               border: 2px solid white;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               // <--- links --->
+               a {
+                  text-decoration: none;
+                  color: white;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  width: inherit;
+                  height: inherit;
+
+                  p {
+                     margin-top: 10px;
+                     margin-bottom: 0px;
+                  }
+               }
+
+               //<---- hover ----->
+               &:hover {
+                  background-color: $accent;
+                  cursor: pointer;
+                  border: 2px solid $accent;
+               }
             }
          }
       }
@@ -65,6 +97,15 @@
             }
             p {
                font-size: 25px;
+               margin-bottom: 40px;
+            }
+            // <----- hotlinks ------->
+            .hotlinks {
+               grid-template-columns: repeat(4, 1fr);
+               grid-gap: 15px;
+               p {
+                  font-size: 20px;
+               }
             }
          }
       }

@@ -8,7 +8,7 @@ const Header = () => {
       <header>
          {/* Logo */}
          <div className="logo">
-            <h1>Logo</h1>
+            <h1>butter.db</h1>
          </div>
          {/* Navigation */}
          <nav className="links">

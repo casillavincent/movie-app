@@ -1,0 +1,78 @@
+@import "../globals.scss";
+.sidebar-on {
+   color: white;
+   background-color: $col1;
+   width: 100%;
+   height: 100vh;
+   position: fixed;
+   z-index: 995;
+   //Heading for all sections in the sidebar
+   .heading {
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: $col2;
+      //Title
+      h1 {
+         font-weight: $subHeading;
+         font-size: 20px;
+         margin-left: 5px;
+      }
+   }
+   .filter {
+      margin-bottom: 20px;
+      .filter-items {
+         padding-left: 20px;
+         a {
+            color: white;
+            text-decoration: none;
+            h2 {
+               margin-top: 5px;
+               font-weight: $text;
+            }
+         }
+      }
+   }
+   .latest {
+      .latest-items {
+         padding-left: 20px;
+         li,
+         a {
+            color: white;
+            list-style-type: none;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: $text;
+            margin-top: 5px;
+         }
+      }
+   }
+}
+
+@media screen and (min-width: 1050px) {
+   .sidebar-on {
+      position: static;
+      border: 1px solid red;
+      width: 250px;
+      height: auto;
+      .heading {
+         justify-content: center;
+         padding: 8px 10px 8px 10px;
+         h1 {
+            font-size: 15px;
+         }
+      }
+      .filter {
+         .filter-items {
+            h2 {
+               font-size: 15px;
+            }
+         }
+      }
+      .latest .latest-items ul li a {
+         font-size: 15px;
+      }
+   }
+}
