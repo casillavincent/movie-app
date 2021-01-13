@@ -2,7 +2,7 @@ import React from "react";
 import { FaHeart, FaArrowRight, FaPlus } from "react-icons/fa";
 import { makeDate } from "../../../globals/dateMaker";
 
-const Single = ({ title, score, key, poster, backdrop, release }) => {
+const PopularMovie = ({ title, score, key, poster, backdrop, release }) => {
    return (
       <article
          className="thumbnail"
@@ -43,4 +43,4 @@ const Single = ({ title, score, key, poster, backdrop, release }) => {
    );
 };
 
-export default Single;
+export default PopularMovie;
