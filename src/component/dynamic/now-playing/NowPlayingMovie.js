@@ -3,8 +3,18 @@ import { FaHeart, FaArrowRight, FaPlus } from "react-icons/fa";
 import { shortenPars } from "../../../globals/shortenPars";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../../globals/formatDate";
+import { useState, useEffect } from "react";
 
-const PopularMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
+const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
+   const [like, setLike] = useState(false);
+   const addLikes = () => {
+      if (like == false) {
+         setLike(true);
+      } else {
+         setLike(false);
+      }
+   };
+
    return (
       <article
          className="thumbnail"
@@ -26,11 +36,13 @@ const PopularMovie = ({ title, score, id, poster, backdrop, release, overview })
                   <span className="rating">{score}</span>
                   <p> Rating </p>
                </div>
-               <Link>
-                  <div className="like">
-                     <FaHeart color="black" /> <p>Like</p>
-                  </div>
-               </Link>
+               <div className="like">
+                  <FaHeart
+                     onClick={() => {
+                        addLikes();
+                     }}
+                  <p>Like</p>
+               </div>
 
                <Link>
                   <div className="watchlist">
@@ -51,4 +63,4 @@ const PopularMovie = ({ title, score, id, poster, backdrop, release, overview })
    );
 };
 
-export default PopularMovie;
+export default NowPlayingMovie;

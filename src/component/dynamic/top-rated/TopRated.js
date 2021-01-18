@@ -3,35 +3,34 @@ import Sidebar from "../../static/Sidebar";
 import Header from "../../static/Header";
 import Footer from "../../static/Footer";
 import { Link } from "react-router-dom";
-import PopularMovie from "./PopularMovie";
+import TopRatedMovie from "./TopRatedMovie";
 import { api_key } from "../../../globals/variables";
 import { useState, useEffect } from "react";
 import { formatDate } from "../../../globals/formatDate";
 
-const Popular = () => {
+const TopRated = () => {
    //! <-------- useState Variable -------->
-   const [popularMovies, setPopularMovies] = useState(null);
+   const [topRatedMovies, setTopRatedMovies] = useState(null);
    //! <-------- Fetch data -------->
-   const fetchPopularMovies = async () => {
+   const fetchTopRatedMovies = async () => {
       const data_popular = await fetch(
-         `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`
+         `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&page=1`
       );
       const response_popular = await data_popular.json();
-      setPopularMovies(response_popular.results);
+      setTopRatedMovies(response_popular.results);
    };
 
    //! <-------- useEffect -------->
    useEffect(() => {
-      fetchPopularMovies();
+      fetchTopRatedMovies();
    }, []);
-   if (popularMovies !== null) {
-      console.log(popularMovies);
+   if (topRatedMovies !== null) {
+      console.log(topRatedMovies);
    }
-
    // <----- Current Page ------>
-   const [isPopular, setIsPopular] = useState(true);
-   if (isPopular == true && popularMovies !== null) {
-      const selector = document.querySelector("a.popular h2");
+   const [isTopRated, setisTopRated] = useState(true);
+   if (isTopRated == true && topRatedMovies !== null) {
+      const selector = document.querySelector("a.top-rated h2");
       selector.classList.add("page-id");
    }
    return (
@@ -41,20 +40,20 @@ const Popular = () => {
             <Sidebar />
             <div className="render">
                {/* Featured */}
-               {popularMovies !== null && (
+               {topRatedMovies !== null && (
                   <figure
                      className="featured"
-                     id={`${popularMovies[0].id}`}
+                     id={`${topRatedMovies[0].id}`}
                      style={{
-                        backgroundImage: `url("https://www.themoviedb.org/t/p/original${popularMovies[0].backdrop_path}")`,
+                        backgroundImage: `url("https://www.themoviedb.org/t/p/original${topRatedMovies[0].backdrop_path}")`,
                      }}
                   >
                      <figcaption>
-                        <h2> {popularMovies[0].title} </h2>
+                        <h2> {topRatedMovies[0].title} </h2>
                         <ul>
-                           <li>{formatDate(popularMovies[0].release_date)}</li>
+                           <li>{formatDate(topRatedMovies[0].release_date)}</li>
                         </ul>
-                        <Link to={`/info/${popularMovies[0].id}`}>
+                        <Link to={`/info/${topRatedMovies[0].id}`}>
                            <button>More Info</button>
                         </Link>
                      </figcaption>
@@ -62,12 +61,12 @@ const Popular = () => {
                )}
                {/*  Titles */}
                <div className="titles">
-                  <h2>Popular Titles</h2>
+                  <h2>Top Rated Titles</h2>
                   <main className="render-titles">
-                     {popularMovies !== null &&
-                        popularMovies.map((movie) => {
+                     {topRatedMovies !== null &&
+                        topRatedMovies.map((movie) => {
                            return (
-                              <PopularMovie
+                              <TopRatedMovie
                                  title={movie.title}
                                  score={movie.vote_average}
                                  id={movie.id}
@@ -87,4 +86,4 @@ const Popular = () => {
    );
 };
 
-export default Popular;
+export default TopRated;

@@ -3,35 +3,34 @@ import Sidebar from "../../static/Sidebar";
 import Header from "../../static/Header";
 import Footer from "../../static/Footer";
 import { Link } from "react-router-dom";
-import PopularMovie from "./PopularMovie";
+import UpcomingMovie from "./UpcomingMovie";
 import { api_key } from "../../../globals/variables";
 import { useState, useEffect } from "react";
 import { formatDate } from "../../../globals/formatDate";
 
-const Popular = () => {
+const Upcoming = () => {
    //! <-------- useState Variable -------->
-   const [popularMovies, setPopularMovies] = useState(null);
+   const [upcomingMovies, setUpcomingMovies] = useState(null);
    //! <-------- Fetch data -------->
-   const fetchPopularMovies = async () => {
-      const data_popular = await fetch(
-         `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`
+   const fetchUpcomingMovies = async () => {
+      const data_upcoming = await fetch(
+         `https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=1`
       );
-      const response_popular = await data_popular.json();
-      setPopularMovies(response_popular.results);
+      const response_upcoming = await data_upcoming.json();
+      setUpcomingMovies(response_upcoming.results);
    };
 
    //! <-------- useEffect -------->
    useEffect(() => {
-      fetchPopularMovies();
+      fetchUpcomingMovies();
    }, []);
-   if (popularMovies !== null) {
-      console.log(popularMovies);
+   if (upcomingMovies !== null) {
+      console.log(upcomingMovies);
    }
-
    // <----- Current Page ------>
-   const [isPopular, setIsPopular] = useState(true);
-   if (isPopular == true && popularMovies !== null) {
-      const selector = document.querySelector("a.popular h2");
+   const [isUpcoming, setisUpcoming] = useState(true);
+   if (isUpcoming == true && upcomingMovies !== null) {
+      const selector = document.querySelector("a.upcoming h2");
       selector.classList.add("page-id");
    }
    return (
@@ -41,20 +40,20 @@ const Popular = () => {
             <Sidebar />
             <div className="render">
                {/* Featured */}
-               {popularMovies !== null && (
+               {upcomingMovies !== null && (
                   <figure
                      className="featured"
-                     id={`${popularMovies[0].id}`}
+                     id={`${upcomingMovies[0].id}`}
                      style={{
-                        backgroundImage: `url("https://www.themoviedb.org/t/p/original${popularMovies[0].backdrop_path}")`,
+                        backgroundImage: `url("https://www.themoviedb.org/t/p/original${upcomingMovies[0].backdrop_path}")`,
                      }}
                   >
                      <figcaption>
-                        <h2> {popularMovies[0].title} </h2>
+                        <h2> {upcomingMovies[0].title} </h2>
                         <ul>
-                           <li>{formatDate(popularMovies[0].release_date)}</li>
+                           <li>{formatDate(upcomingMovies[0].release_date)}</li>
                         </ul>
-                        <Link to={`/info/${popularMovies[0].id}`}>
+                        <Link to={`/info/${upcomingMovies[0].id}`}>
                            <button>More Info</button>
                         </Link>
                      </figcaption>
@@ -62,12 +61,12 @@ const Popular = () => {
                )}
                {/*  Titles */}
                <div className="titles">
-                  <h2>Popular Titles</h2>
+                  <h2>Upcoming Titles</h2>
                   <main className="render-titles">
-                     {popularMovies !== null &&
-                        popularMovies.map((movie) => {
+                     {upcomingMovies !== null &&
+                        upcomingMovies.map((movie) => {
                            return (
-                              <PopularMovie
+                              <UpcomingMovie
                                  title={movie.title}
                                  score={movie.vote_average}
                                  id={movie.id}
@@ -87,4 +86,4 @@ const Popular = () => {
    );
 };
 
-export default Popular;
+export default Upcoming;

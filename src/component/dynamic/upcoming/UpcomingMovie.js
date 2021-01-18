@@ -4,7 +4,7 @@ import { shortenPars } from "../../../globals/shortenPars";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../../globals/formatDate";
 
-const PopularMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
+const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
    return (
       <article
          className="thumbnail"
@@ -51,4 +51,4 @@ const PopularMovie = ({ title, score, id, poster, backdrop, release, overview })
    );
 };
 
-export default PopularMovie;
+export default UpcomingMovie;

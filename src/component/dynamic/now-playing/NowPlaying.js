@@ -3,35 +3,34 @@ import Sidebar from "../../static/Sidebar";
 import Header from "../../static/Header";
 import Footer from "../../static/Footer";
 import { Link } from "react-router-dom";
-import PopularMovie from "./PopularMovie";
+import NowPlayingMovie from "./NowPlayingMovie";
 import { api_key } from "../../../globals/variables";
 import { useState, useEffect } from "react";
 import { formatDate } from "../../../globals/formatDate";
 
-const Popular = () => {
+const NowPlaying = () => {
    //! <-------- useState Variable -------->
-   const [popularMovies, setPopularMovies] = useState(null);
+   const [nowPlaying, setNowPlaying] = useState(null);
    //! <-------- Fetch data -------->
-   const fetchPopularMovies = async () => {
-      const data_popular = await fetch(
-         `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`
+   const fetchNowPlaying = async () => {
+      const data_now_playing = await fetch(
+         `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1`
       );
-      const response_popular = await data_popular.json();
-      setPopularMovies(response_popular.results);
+      const response_now_playing = await data_now_playing.json();
+      setNowPlaying(response_now_playing.results);
    };
 
    //! <-------- useEffect -------->
    useEffect(() => {
-      fetchPopularMovies();
+      fetchNowPlaying();
    }, []);
-   if (popularMovies !== null) {
-      console.log(popularMovies);
-   }
-
+   // if (nowPlaying !== null) {
+   //    console.log(nowPlaying);
+   // }
    // <----- Current Page ------>
-   const [isPopular, setIsPopular] = useState(true);
-   if (isPopular == true && popularMovies !== null) {
-      const selector = document.querySelector("a.popular h2");
+   const [isNowPlaying, setIsNowPlaying] = useState(true);
+   if (isNowPlaying == true && nowPlaying !== null) {
+      const selector = document.querySelector("a.now-playing h2");
       selector.classList.add("page-id");
    }
    return (
@@ -41,20 +40,20 @@ const Popular = () => {
             <Sidebar />
             <div className="render">
                {/* Featured */}
-               {popularMovies !== null && (
+               {nowPlaying !== null && (
                   <figure
                      className="featured"
-                     id={`${popularMovies[0].id}`}
+                     id={`${nowPlaying[0].id}`}
                      style={{
-                        backgroundImage: `url("https://www.themoviedb.org/t/p/original${popularMovies[0].backdrop_path}")`,
+                        backgroundImage: `url("https://www.themoviedb.org/t/p/original${nowPlaying[0].backdrop_path}")`,
                      }}
                   >
                      <figcaption>
-                        <h2> {popularMovies[0].title} </h2>
+                        <h2> {nowPlaying[0].title} </h2>
                         <ul>
-                           <li>{formatDate(popularMovies[0].release_date)}</li>
+                           <li>{formatDate(nowPlaying[0].release_date)}</li>
                         </ul>
-                        <Link to={`/info/${popularMovies[0].id}`}>
+                        <Link to={`/info/${nowPlaying[0].id}`}>
                            <button>More Info</button>
                         </Link>
                      </figcaption>
@@ -62,12 +61,12 @@ const Popular = () => {
                )}
                {/*  Titles */}
                <div className="titles">
-                  <h2>Popular Titles</h2>
+                  <h2>Now Playing</h2>
                   <main className="render-titles">
-                     {popularMovies !== null &&
-                        popularMovies.map((movie) => {
+                     {nowPlaying !== null &&
+                        nowPlaying.map((movie) => {
                            return (
-                              <PopularMovie
+                              <NowPlayingMovie
                                  title={movie.title}
                                  score={movie.vote_average}
                                  id={movie.id}
@@ -87,4 +86,4 @@ const Popular = () => {
    );
 };
 
-export default Popular;
+export default NowPlaying;

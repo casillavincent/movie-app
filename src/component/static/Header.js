@@ -11,15 +11,17 @@ const Header = () => {
    return (
       <header>
          {/* Logo */}
-         <div className="logo">
-            <h1>butter.db</h1>
-         </div>
+         <Link to={"/"} style={{ textDecoration: "none" }}>
+            <div className="logo">
+               <h1>butter.db</h1>
+            </div>
+         </Link>
          {/* Navigation */}
          <nav className="links">
             <ul>
                {/* Home */}
                <li>
-                  <Link to={"/"}>Home</Link>
+                  <Link to={"/popular"}>Home</Link>
                </li>
 
                {/* Favourites */}

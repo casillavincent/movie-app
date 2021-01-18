@@ -6,13 +6,14 @@ $text: 300;
 //! <--- Pallete ---->
 $col1: #1b1e2b;
 $col2: #2a2d3e;
-$accent: lightgreen;
+$accent: violet;
 
 //! Misc
 $defBlur: blur(10px);
 //! <--- Mixins ---->
 @mixin backdrop-prop {
-   background-position: center;
+   background-position: center-top;
    background-size: cover;
    background-attachment: fixed;
+   background-repeat: no-repeat;
 }

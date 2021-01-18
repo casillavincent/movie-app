@@ -7,6 +7,10 @@ import Landing from "./component/dynamic/Landing";
 import Favourites from "./component/dynamic/Favourites";
 import About from "./component/dynamic/About";
 import Popular from "./component/dynamic/popular/Popular";
+import Single from "./component/dynamic/Single";
+import TopRated from "./component/dynamic/top-rated/TopRated";
+import Upcoming from "./component/dynamic/upcoming/Upcoming";
+import NowPlaying from "./component/dynamic/now-playing/NowPlaying";
 
 function App() {
    return (
@@ -14,10 +18,16 @@ function App() {
          <React.Fragment>
             {/* All contents of the app will render inside the wrapper */}
             <Switch>
+               {/* Home */}
                <Route path="/" exact component={Landing} />
+               {/* Main Pages */}
                <Route path="/popular" component={Popular} />
+               <Route path="/top-rated" component={TopRated} />
+               <Route path="/upcoming" component={Upcoming} />
+               <Route path="/now-playing" component={NowPlaying} />
                <Route path="/favourites" component={Favourites} />
                <Route path="/about" component={About} />
+               <Route path="/info/:id" component={Single} />
             </Switch>
          </React.Fragment>
       </Router>

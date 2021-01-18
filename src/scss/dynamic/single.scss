@@ -1,0 +1,287 @@
+@import "../globals.scss";
+
+//! <---- Mobile ---->
+.single-container {
+   //* <---- compensate for height of header ------>
+   margin-top: 75px;
+   background-color: white;
+   overflow-x: hidden;
+   //Image
+   .poster {
+      width: 100%;
+   }
+   .render-single {
+      .general-info {
+         padding: 10px;
+         //Title
+         .title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 25px;
+            .rating {
+               background-color: $col1;
+               color: white;
+               border-radius: 3px;
+               padding: 7px 10px 7px 10px;
+               font-size: 15px;
+               margin-left: 10px;
+               height: 100%;
+            }
+         }
+         hr {
+            display: none;
+         }
+
+         //Header Ul
+         .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 400px;
+            margin-bottom: 20px;
+            li {
+               list-style-type: none;
+               font-size: 15px;
+            }
+            .adult {
+               border: 1px solid grey;
+               padding: 1px 3px 1px 3px;
+               border-radius: 2px;
+               color: grey;
+            }
+            li:nth-child(2):after {
+               content: "|";
+               margin-left: 5px;
+            }
+            li:nth-child(3):after {
+               content: "|";
+               margin-left: 5px;
+            }
+            li:nth-child(4):after {
+               content: "|";
+               margin-left: 5px;
+            }
+         }
+
+         //Release Date
+         .release {
+            font-weight: $subHeading;
+            font-size: 17px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            span {
+               margin-right: 5px;
+               background-color: $col1;
+               color: white;
+               padding: 1px 5px 1px 5px;
+               border-radius: 2px;
+            }
+         }
+         .tagline {
+            font-style: italic;
+            font-size: 17px;
+            margin-bottom: 20px;
+         }
+         .overview-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+         }
+         .overview {
+            font-size: 15px;
+            margin-bottom: 20px;
+         }
+
+         //Action Buttons
+         .single-action-btns {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 350px;
+            margin: auto;
+            @media screen and (min-width: 800px) {
+               position: relative;
+               left: -150px;
+            }
+            @media screen and (min-width: 800px) {
+               position: relative;
+               left: -65px;
+            }
+            .single-votes,
+            .single-popularity,
+            .single-like,
+            .single-watchlist {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: flex-start;
+               width: 75px;
+               height: 75px;
+               p {
+                  font-size: 12px;
+                  padding-top: 5px;
+                  text-align: center;
+               }
+            }
+            .single-watchlist {
+               p {
+                  width: 90px;
+               }
+            }
+         }
+      }
+
+      // <---- Cast and Crew Component ---->
+      .cast {
+         width: 100%;
+         display: grid;
+         padding: 10px;
+         .cast-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+         }
+         .render-cast {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            grid-gap: 10px;
+            @media screen and (min-width: 670px) {
+               grid-template-columns: repeat(4, 1fr);
+               border: 1px solid red;
+               height: auto;
+            }
+            .cast-member {
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               width: 100%;
+               height: 200px;
+               img {
+                  width: auto;
+                  height: 150px;
+                  clip-path: circle(50px at center);
+               }
+               .name {
+                  font-weight: 700;
+                  font-size: 14px;
+                  margin-bottom: 3px;
+                  text-align: center;
+               }
+               .character {
+                  text-align: center;
+                  font-size: 13px;
+               }
+            }
+         }
+      }
+   }
+}
+
+//! <---- Tablet ---->
+@media screen and (min-width: 675px) {
+   .single-container {
+      height: 100%;
+      width: 100%;
+      .render-single {
+         height: 1500px;
+         .poster {
+            width: 250px;
+            margin: 15px 0px 0px 15px;
+            border-radius: 5px;
+         }
+         .general-info {
+            position: absolute;
+            top: 90px;
+            left: 275px;
+            .header {
+               width: 350px;
+               li {
+                  font-size: 12px;
+               }
+            }
+            .overview {
+               width: 350px;
+            }
+            @media screen and (min-width: 800px) {
+               width: 500px;
+               height: 375px;
+               .overview {
+                  width: 500px;
+               }
+            }
+         }
+         .cast {
+            margin-top: 75px;
+            @media screen and (min-width: 800px) {
+               padding: 17px;
+            }
+            .render-cast {
+               height: 1000px;
+               @media screen and (min-width: 800px) {
+                  grid-template-columns: repeat(5, 1fr);
+               }
+               .cast-member {
+                  justify-content: flex-start;
+               }
+            }
+         }
+      }
+   }
+}
+@media screen and (min-width: 1050px) {
+   .single-container {
+      margin: auto;
+      width: 100%;
+      height: 700px;
+      overflow-y: hidden;
+      .render-single {
+         .poster {
+            width: 200px;
+         }
+         .general-info {
+            position: relative;
+            top: -305px;
+            left: 220px;
+            width: 500px;
+            height: 350px;
+            .title {
+               font-size: 20px;
+            }
+            .header {
+               width: 325px;
+               li {
+                  font-size: 12px;
+               }
+            }
+            .release {
+               font-size: 15px;
+            }
+            .tagline {
+               font-size: 17px;
+            }
+         }
+         .cast {
+            position: relative;
+            top: -350px;
+            .render-cast {
+               display: flex;
+               flex-direction: row;
+               justify-content: space-between;
+               align-items: center;
+               overflow-x: scroll;
+               overflow-y: hidden;
+               height: 250px;
+               width: auto;
+               .cast-member {
+                  justify-content: flex-start;
+                  margin: 0px 10px 0px 10px;
+               }
+            }
+         }
+      }
+   }
+}

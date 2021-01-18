@@ -21,21 +21,21 @@ const Landing = () => {
                   </div>
                   <div className="top-rated">
                      {/* Top Rated */}
-                     <Link>
+                     <Link to={"/top-rated"}>
                         <FaStar size="1.75em" />
                         <p>Top Rated</p>
                      </Link>
                   </div>
                   <div className="upcoming">
                      {/* Upcoming */}
-                     <Link>
+                     <Link to={"/upcoming"}>
                         <FaClock size="1.75em" />
                         <p>Upcoming</p>
                      </Link>
                   </div>
                   <div className="now-playing">
                      {/* Now Playing */}
-                     <Link>
+                     <Link to={"/now-playing"}>
                         <FaPlay size="1.75em" />
                         <p>Now Playing</p>
                      </Link>

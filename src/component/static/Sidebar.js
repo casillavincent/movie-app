@@ -16,6 +16,7 @@ const Sidebar = () => {
    useEffect(() => {
       fetchLatest();
       if (latest !== null) {
+         console.log(latest);
       }
    }, []);
    //? <----- end of fetch data ------->
@@ -25,7 +26,6 @@ const Sidebar = () => {
       let mql = window.matchMedia("(min-width: 1050px)");
       const sidebar = document.querySelector("aside");
 
-      console.log(mql);
       if (mql.matches == true) {
          sidebar.classList.add("sidebar-on");
       } else {
@@ -33,7 +33,6 @@ const Sidebar = () => {
       }
    });
    useEffect(() => {
-      console.log("Getting Window Size");
       let mql = window.matchMedia("(min-width: 1050px)");
       const sidebar = document.querySelector("aside");
 
@@ -50,16 +49,16 @@ const Sidebar = () => {
                <h1>Filter</h1>
             </div>
             <div className="filter-items">
-               <Link className="popular">
+               <Link className="popular" to={"/popular"}>
                   <h2>Popular</h2>
                </Link>
-               <Link className="top-rated">
+               <Link className="top-rated" to={"/top-rated"}>
                   <h2>Top Rated</h2>
                </Link>
-               <Link className="upcoming">
+               <Link className="upcoming" to={"/upcoming"}>
                   <h2>Upcoming</h2>
                </Link>
-               <Link className="now-playing">
+               <Link className="now-playing" to={"/now-playing"}>
                   <h2>Now Playing</h2>
                </Link>
             </div>
