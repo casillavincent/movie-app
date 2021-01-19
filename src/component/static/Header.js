@@ -30,14 +30,14 @@ const Header = () => {
                </li>
 
                {/* About */}
-               <li>
+               <li className="about-btn-container">
                   <Link to={"/about"}>About</Link>
                </li>
             </ul>
          </nav>
          <nav className="mobile-links">
             {/* Home */}
-            <Link to={"/"} className="icon">
+            <Link to={"/popular"} className="icon">
                <FaHome size="1.5em" />
             </Link>
             {/* Search */}

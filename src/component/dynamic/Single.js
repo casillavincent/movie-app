@@ -3,7 +3,7 @@ import { api_key, poster_base, backdrop_base } from "../../globals/variables";
 import { useState, useEffect } from "react";
 import { FaHeart, FaPlus, FaUserAlt, FaStar, FaClock } from "react-icons/fa";
 import { formatDate } from "../../globals/formatDate";
-import { floorNumber } from "../../globals/utilities";
+import { floorNumber, percentNumber, ratingColor } from "../../globals/utilities";
 //Components
 import Header from "../static/Header";
 import Footer from "../static/Footer";
@@ -42,6 +42,7 @@ const Single = (match) => {
    useEffect(() => {
       fetchSingleItem();
       fetchCast();
+      changeBackdropToCurrent();
    }, []);
 
    //? <------ console.log() the movieInfo object ------->
@@ -73,8 +74,15 @@ const Single = (match) => {
                      {movieInfo !== null && (
                         <div className="general-info">
                            <h1 className="title">
+                              <span
+                                 className="rating"
+                                 style={{
+                                    backgroundColor: `${ratingColor(movieInfo.vote_average)}`,
+                                 }}
+                              >
+                                 {percentNumber(movieInfo.vote_average)}
+                              </span>
                               {movieInfo.title}{" "}
-                              <span className="rating">{movieInfo.vote_average}</span>
                            </h1>
                            <hr />
                            <ul className="header">
@@ -100,6 +108,7 @@ const Single = (match) => {
                            {/* Overview */}
                            <h2 className="overview-title"> Overview</h2>
                            <p className="overview">{movieInfo.overview}</p>
+                           <hr />
                            {/* Action Buttons */}
                            <div className="single-action-btns">
                               <div className="single-votes">
@@ -123,7 +132,7 @@ const Single = (match) => {
                               </div>
                               <div className="single-watchlist">
                                  <FaPlus size="1.5em" color="black" />
-                                 <p> Add to Watchlist</p>
+                                 <p>Watchlist</p>
                               </div>
                            </div>
                         </div>

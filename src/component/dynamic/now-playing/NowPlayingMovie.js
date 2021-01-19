@@ -3,7 +3,7 @@ import { FaHeart, FaArrowRight, FaPlus } from "react-icons/fa";
 import { shortenPars } from "../../../globals/shortenPars";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../../globals/formatDate";
-import { useState, useEffect } from "react";
+import { percentNumber, ratingColor } from "../../../globals/utilities";
 
 const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
    return (
@@ -24,7 +24,9 @@ const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview
             <p className="short-overview">{shortenPars(overview)}</p>
             <div className="action-btns">
                <div className="rating-btn">
-                  <span className="rating">{score}</span>
+                  <span className="rating" style={{ backgroundColor: `${ratingColor(score)}` }}>
+                     {percentNumber(score)}
+                  </span>
                   <p> Rating </p>
                </div>
                <div className="like">

@@ -1,15 +1,21 @@
 import React from "react";
+//Components
+import Header from "../static/Header";
+import Footer from "../static/Footer";
+import Sidebar from "../static/Sidebar";
 
 const Favourites = () => {
    return (
-      <div>
-         <h1>Favourites</h1>
-         <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid expedita voluptatibus
-            cumque dolore ab culpa, dolorem reiciendis numquam! Id vitae omnis voluptatum officiis,
-            possimus officia vero at nihil asperiores ipsum?
-         </p>
-      </div>
+      <React.Fragment>
+         <Header />
+         <div className="wrapper">
+            <Sidebar />
+            <div className="favourites-container">
+               <h1> Favourites</h1>
+            </div>
+         </div>
+         <Footer />
+      </React.Fragment>
    );
 };
 

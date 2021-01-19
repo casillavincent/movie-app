@@ -34,6 +34,7 @@ const Popular = () => {
       const selector = document.querySelector("a.popular h2");
       selector.classList.add("page-id");
    }
+   //* <---------- Render Component ----------------->
    return (
       <React.Fragment>
          <Header />

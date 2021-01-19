@@ -1,22 +1,11 @@
 import React from "react";
 import { FaHeart, FaArrowRight, FaPlus } from "react-icons/fa";
 import { shortenPars } from "../../../globals/shortenPars";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { formatDate } from "../../../globals/formatDate";
-import { useState } from "react";
+import { percentNumber, ratingColor } from "../../../globals/utilities";
 
 const PopularMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
-   const [heart, setHeart] = useState(false);
-
-   const addToLikes = () => {
-      if (heart == false) {
-         setHeart(true);
-      } else {
-         setHeart(false);
-         console.log(heart);
-      }
-   };
-
    return (
       <article
          className="thumbnail"
@@ -35,17 +24,13 @@ const PopularMovie = ({ title, score, id, poster, backdrop, release, overview })
             <p className="short-overview">{shortenPars(overview)}</p>
             <div className="action-btns">
                <div className="rating-btn">
-                  <span className="rating">{score}</span>
+                  <span className="rating" style={{ backgroundColor: `${ratingColor(score)}` }}>
+                     {percentNumber(score)}
+                  </span>
                   <p> Rating </p>
                </div>
                <div className="like">
-                  <FaHeart
-                     color={heart == false ? "black" : "red"}
-                     onClick={() => {
-                        addToLikes();
-                     }}
-                  />{" "}
-                  <p>Like</p>
+                  <FaHeart color="black" /> <p>Like</p>
                </div>
 
                <div className="watchlist">

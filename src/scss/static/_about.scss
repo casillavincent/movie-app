@@ -1,0 +1,95 @@
+@import "../globals.scss";
+//! <----- Mobile ------>
+.about-container {
+   width: 100%;
+   margin-top: 75px;
+   margin-bottom: 250px;
+   h2 {
+      font-weight: $heading;
+      font-size: 20px;
+   }
+   p {
+      font-size: 15px;
+      width: 400px;
+      line-height: 20px;
+   }
+   .app-info,
+   .tmdb-info,
+   .react-info {
+      background-color: rgba(white, 0.9);
+      backdrop-filter: $defBlur;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 95%;
+      height: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+   }
+   .app-info {
+      h2 {
+         margin-bottom: 5px;
+      }
+   }
+   .tmdb-info {
+      img {
+         height: 15px;
+         width: auto;
+         margin-bottom: 5px;
+      }
+   }
+   .react-info {
+      h2 {
+         margin-bottom: 5px;
+      }
+   }
+}
+//! <---- Tablet/Desktop ----->
+@media screen and (min-width: 800px) {
+   .about-container {
+      .app-info,
+      .tmdb-info,
+      .react-info {
+         width: 600px;
+      }
+   }
+}
+@media screen and (min-width: 1050px) {
+   .about-container {
+      margin: 0px;
+      display: grid;
+      width: 740px;
+      height: 400px;
+      grid-template-areas:
+         "A A B B B"
+         "A A B B B"
+         "A A C C C"
+         "A A C C C";
+      grid-gap: 20px;
+      p {
+         width: 90%;
+      }
+      .app-info {
+         grid-area: A;
+         margin: 0px;
+         width: 300px;
+         height: 100%;
+      }
+      .tmdb-info {
+         grid-area: B;
+         margin: 0px;
+         width: 390px;
+         height: 100%;
+      }
+      .react-info {
+         grid-area: C;
+         margin: 0px;
+         width: 390px;
+         height: 100%;
+      }
+   }
+}

@@ -27,8 +27,8 @@
                   background-color: white;
                   padding: 2px 7px 2px 7px;
                   border-radius: 3px;
-                  color: $col1;
-                  margin-left: 5px;
+                  color: white;
+                  margin-right: 10px;
                }
             }
             //? Line Break
@@ -42,7 +42,7 @@
                flex-direction: row;
                justify-content: space-between;
                align-items: center;
-               width: 325px;
+               width: 400px;
                font-size: 13px;
                margin-bottom: 15px;
                li {
@@ -55,26 +55,25 @@
                }
                li:nth-child(2):after {
                   content: "|";
-                  margin-left: 10px;
+                  margin-left: 15px;
                }
                li:nth-child(3):after {
                   content: "|";
-                  margin-left: 10px;
+                  margin-left: 15px;
                }
                li:nth-child(4):after {
                   content: "|";
-                  margin-left: 10px;
+                  margin-left: 15px;
                }
             }
 
             .release {
                font-size: 17px;
                margin-bottom: 10px;
+               font-style: italic;
                span {
-                  background-color: white;
-                  color: $col1;
                   padding: 1px 5px 1px 5px;
-                  border-radius: 2px;
+                  font-style: normal;
                }
             }
 
@@ -141,19 +140,19 @@
          .render-cast {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: center;
             align-items: flex-start;
             flex-wrap: wrap;
-            transition: all 0.3s ease;
             //! Individual
             .cast-member {
-               width: 200px;
                height: 200px;
+               width: 125px;
                display: flex;
                flex-direction: column;
                justify-content: flex-start;
                align-items: center;
-               transition: inherit;
+               margin: 10px;
+               text-align: center;
                img {
                   height: 150px;
                   width: auto;
@@ -173,7 +172,7 @@
       }
    }
 }
-
+//! <------- Tablet --------->
 @media screen and (min-width: 800px) {
    .single-container {
       .render-single {
@@ -196,7 +195,7 @@
                align-items: flex-start;
                .single-action-btns {
                   height: auto;
-                  width: 300px;
+                  width: 100%;
                   margin: 0px;
                }
             }
@@ -204,9 +203,10 @@
       }
    }
 }
-
+//! <----- Desktop ------->
 @media screen and (min-width: 1050px) {
    .single-container {
+      margin: 0px;
       .render-single {
          .cast {
             .render-cast {
@@ -220,7 +220,7 @@
                height: 250px;
                .cast-member {
                   margin: 0px 15px 0px 15px;
-                  width: 500px;
+                  width: 150px;
                   .name {
                      font-size: 12px;
                      text-align: center;

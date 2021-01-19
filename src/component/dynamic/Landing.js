@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFireAlt, FaStar, FaClock, FaPlay } from "react-icons/fa";
+import { FaFireAlt, FaStar, FaClock, FaPlay, FaPlus, FaUserAstronaut } from "react-icons/fa";
 
 const Landing = () => {
    const bg_url = "https://www.themoviedb.org/t/p/original/d2UxKyaJ5GgzuHaSsWinFfv3g6L.jpg";
@@ -38,6 +38,20 @@ const Landing = () => {
                      <Link to={"/now-playing"}>
                         <FaPlay size="1.75em" />
                         <p>Now Playing</p>
+                     </Link>
+                  </div>
+                  <div className="favourites">
+                     {/* Favourites */}
+                     <Link to={"/favourites"}>
+                        <FaPlus size="1.75em" />
+                        <p>Favourites</p>
+                     </Link>
+                  </div>
+                  <div className="about">
+                     {/* Favourites */}
+                     <Link to={"/about"}>
+                        <FaUserAstronaut size="1.75em" />
+                        <p>About</p>
                      </Link>
                   </div>
                </div>

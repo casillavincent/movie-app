@@ -13,7 +13,7 @@
 @import "./dynamic/render";
 @import "./dynamic/thumbnail";
 @import "./dynamic//single.scss";
-
+@import "./static/about";
 html {
    * {
       margin: 0px;
@@ -28,8 +28,8 @@ html {
 body {
    width: 100%;
    @include backdrop-prop;
-   transition: all 0.5s ease-in;
    background-color: $col1;
+   transition: background-image 0.3s ease;
    .wrapper {
       width: inherit;
       background-color: rgba($col2, 0.9);

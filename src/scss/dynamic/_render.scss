@@ -1,4 +1,6 @@
+//Stylesheet for rendering each component (main pages)
 @import "../globals.scss";
+
 .render {
    color: white;
    width: 100%;
@@ -21,6 +23,7 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-end;
+
       figcaption {
          margin-left: 20px;
          margin-bottom: 25px;
@@ -45,6 +48,7 @@
             background-color: transparent;
             border-style: none;
             border: 2px solid white;
+
             padding: 5px 10px 5px 10px;
             a {
                color: white;
@@ -53,13 +57,18 @@
             &:hover {
                border: 2px solid $accent;
                color: $accent;
+               cursor: pointer;
                a {
                   color: $accent;
                }
             }
+            &:active {
+               outline: none;
+            }
          }
       }
    }
+
    // <----- where components render ------>
    .titles {
       display: flex;
@@ -89,7 +98,7 @@
          flex-direction: column;
          justify-content: flex-start;
          align-items: center;
-         background-color: white;
+         background-color: transparent;
          .render-titles {
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 30px;
@@ -105,5 +114,11 @@
    .render {
       margin: 0px;
       padding: 0px;
+      .titles {
+         h2 {
+            color: $col1;
+         }
+         background-color: rgba(white, 0.9);
+      }
    }
 }
