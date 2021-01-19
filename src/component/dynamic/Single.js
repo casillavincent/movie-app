@@ -62,71 +62,78 @@ const Single = (match) => {
             <div className="single-container">
                <div className="render-single">
                   {/* <----- Above the fold info -----> */}
-                  <img
-                     src={movieInfo !== null && `${poster_base}${movieInfo.poster_path}`}
-                     alt={movieInfo !== null && `${movieInfo.title}`}
-                     width="250"
-                     className="poster"
-                  />
-                  {/* <-------- General Info Section ----------> */}
-                  {movieInfo !== null && (
-                     <div className="general-info">
-                        <h1 className="title">
-                           {movieInfo.title}{" "}
-                           <span className="rating">{movieInfo.vote_average}</span>
-                        </h1>
-                        <hr />
-                        <ul className="header">
-                           <li className="adult">
-                              {movieInfo.adult == true ? "Rated-R" : "PG-13"}
-                           </li>
-                           <li className="status">{movieInfo.status}</li>
-                           <li className="runtime">{movieInfo.runtime + " min"}</li>
-                           <li className="one-genre">{movieInfo.genres[0].name}</li>
-                           <li className="language">
-                              {movieInfo.spoken_languages[0].english_name}
-                           </li>
-                        </ul>
+                  <div className="movie-overview">
+                     <img
+                        src={movieInfo !== null && `${poster_base}${movieInfo.poster_path}`}
+                        alt={movieInfo !== null && `${movieInfo.title}`}
+                        width="250"
+                        className="poster"
+                     />
+                     {/* <-------- General Info Section ----------> */}
+                     {movieInfo !== null && (
+                        <div className="general-info">
+                           <h1 className="title">
+                              {movieInfo.title}{" "}
+                              <span className="rating">{movieInfo.vote_average}</span>
+                           </h1>
+                           <hr />
+                           <ul className="header">
+                              <li className="adult">
+                                 {movieInfo.adult == true ? "Rated-R" : "PG-13"}
+                              </li>
+                              <li className="status">{movieInfo.status}</li>
+                              <li className="runtime">{movieInfo.runtime + " min"}</li>
+                              <li className="one-genre">{movieInfo.genres[0].name}</li>
+                              <li className="language">
+                                 {movieInfo.spoken_languages[0].english_name}
+                              </li>
+                           </ul>
 
-                        <h2 className="release">
-                           <span>Release Date:</span> {formatDate(movieInfo.release_date)}
-                        </h2>
-                        <p className="tagline">
-                           {movieInfo.tagline !== null
-                              ? movieInfo.tagline
-                              : "Movie does not contain a tagline."}
-                        </p>
-                        {/* Overview */}
-                        <h2 className="overview-title"> Overview</h2>
-                        <p className="overview">{movieInfo.overview}</p>
-                        {/* Action Buttons */}
-                        <div className="single-action-btns">
-                           <div className="single-votes">
-                              <FaUserAlt size="1.5em" color="black" />
-                              <p>
-                                 {floorNumber(movieInfo.vote_count)} <br />
-                                 Votes
-                              </p>
-                           </div>
-                           <div className="single-popularity">
-                              <FaStar size="1.5em" color="black" />
-                              <p> {floorNumber(movieInfo.popularity)} Popularity</p>
-                           </div>
-                           <div className="single-like">
-                              <FaHeart size="1.5em" color="black" />
-                              <p>Like</p>
-                           </div>
-                           <div className="single-watchlist">
-                              <FaPlus size="1.5em" color="black" />
-                              <p> Add to Watchlist</p>
+                           <h2 className="release">
+                              <span>Release Date:</span> {formatDate(movieInfo.release_date)}
+                           </h2>
+                           <p className="tagline">
+                              {movieInfo.tagline !== null
+                                 ? movieInfo.tagline
+                                 : "Movie does not contain a tagline."}
+                           </p>
+                           {/* Overview */}
+                           <h2 className="overview-title"> Overview</h2>
+                           <p className="overview">{movieInfo.overview}</p>
+                           {/* Action Buttons */}
+                           <div className="single-action-btns">
+                              <div className="single-votes">
+                                 <FaUserAlt size="1.5em" color="black" />
+                                 <p>
+                                    {floorNumber(movieInfo.vote_count)} <br />
+                                    Votes
+                                 </p>
+                              </div>
+                              <div className="single-popularity">
+                                 <FaStar size="1.5em" color="black" />
+                                 <p>
+                                    {" "}
+                                    {floorNumber(movieInfo.popularity)} <br />
+                                    Popularity
+                                 </p>
+                              </div>
+                              <div className="single-like">
+                                 <FaHeart size="1.5em" color="black" />
+                                 <p>Like</p>
+                              </div>
+                              <div className="single-watchlist">
+                                 <FaPlus size="1.5em" color="black" />
+                                 <p> Add to Watchlist</p>
+                              </div>
                            </div>
                         </div>
-                     </div>
-                  )}
+                     )}
+                  </div>
 
                   {/* <---------- Cast and Crew --------------> */}
                   <div className="cast">
                      <h2 className="cast-title">Cast and Crew</h2>
+                     <hr />
                      <div className="render-cast">
                         {cast !== null && cast.cast.length > 0 ? (
                            cast.cast.map((person) => {

@@ -6,15 +6,6 @@ import { formatDate } from "../../../globals/formatDate";
 import { useState, useEffect } from "react";
 
 const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
-   const [like, setLike] = useState(false);
-   const addLikes = () => {
-      if (like == false) {
-         setLike(true);
-      } else {
-         setLike(false);
-      }
-   };
-
    return (
       <article
          className="thumbnail"
@@ -37,10 +28,7 @@ const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview
                   <p> Rating </p>
                </div>
                <div className="like">
-                  <FaHeart
-                     onClick={() => {
-                        addLikes();
-                     }}
+                  <FaHeart />
                   <p>Like</p>
                </div>
 
