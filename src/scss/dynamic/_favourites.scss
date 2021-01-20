@@ -1,0 +1,229 @@
+@import "../globals.scss";
+//! <----- Mobile ------->
+.favourites-container {
+   margin-top: 75px;
+   .likes-container,
+   .watchlist-container {
+      width: 95%;
+      margin: auto;
+      background-color: white;
+      border-radius: 3px;
+      margin-top: 15px;
+      h2 {
+         text-align: center;
+         display: flex;
+         justify-content: center;
+         align-items: flex-start;
+         padding: 15px;
+         span {
+            margin-right: 5px;
+         }
+      }
+   }
+   .likes-container {
+      .title-likes {
+         font-size: 18px;
+      }
+      .render-likes {
+         .likes-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-end;
+            margin: 15px;
+            border-bottom: 2px solid rgba(lightgray, 0.9);
+            padding-bottom: 15px;
+            img {
+               height: 150px;
+               width: auto;
+               border-radius: 5px;
+            }
+            .info {
+               margin-left: 15px;
+               .title {
+                  font-weight: $heading;
+                  font-size: 17px;
+                  margin-bottom: 5px;
+                  span {
+                     background-color: $col1;
+                     color: white;
+                     padding: 2px 5px 2px 5px;
+                     border-radius: 3px;
+                  }
+               }
+               .release {
+                  font-style: italic;
+                  font-size: 15px;
+                  margin-bottom: 15px;
+               }
+               .action-btns {
+                  button {
+                     padding: 5px 10px 5px 10px;
+                     margin-right: 10px;
+                     cursor: pointer;
+                     background-color: transparent;
+                     a {
+                        text-decoration: none;
+                        color: inherit;
+                     }
+                     &:active {
+                        outline: none;
+                     }
+                  }
+                  .remove {
+                     border: 1px solid red;
+                     color: red;
+                  }
+                  .more-info {
+                     border-style: none;
+                     border: 1px solid lightgray;
+                     color: slategray;
+                  }
+               }
+            }
+         }
+      }
+   }
+   .watchlist-container {
+      .title-watchlist {
+         font-size: 18px;
+      }
+      .render-watchlist {
+         .watchlist-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-end;
+            margin: 15px;
+            border-bottom: 2px solid rgba(lightgray, 0.9);
+            padding-bottom: 15px;
+            img {
+               height: 150px;
+               width: auto;
+               border-radius: 5px;
+            }
+            .info {
+               margin-left: 15px;
+               .title {
+                  font-weight: $heading;
+                  font-size: 17px;
+                  margin-bottom: 5px;
+                  span {
+                     background-color: $col1;
+                     color: white;
+                     padding: 2px 5px 2px 5px;
+                     border-radius: 3px;
+                  }
+               }
+               .release {
+                  font-style: italic;
+                  font-size: 15px;
+                  margin-bottom: 15px;
+               }
+               .action-btns {
+                  button {
+                     padding: 5px 10px 5px 10px;
+                     margin-right: 10px;
+                     cursor: pointer;
+                     background-color: transparent;
+                     a {
+                        text-decoration: none;
+                        color: inherit;
+                     }
+                     &:active {
+                        outline: none;
+                     }
+                  }
+                  .remove {
+                     border: 1px solid red;
+                     color: red;
+                  }
+                  .more-info {
+                     border-style: none;
+                     border: 1px solid lightgray;
+                     color: slategray;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+@media screen and (min-width: 850px) {
+   .favourites-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      margin: 100px auto 0px auto;
+      width: 95%;
+      height: 100vh;
+      .likes-container {
+         margin: 0px;
+         height: 600px;
+         overflow-y: auto;
+         .render-likes {
+            .likes-item {
+               img {
+                  height: 100px;
+                  width: auto;
+               }
+               .info {
+                  .title {
+                     font-size: 15px;
+                     span {
+                        font-size: 14px;
+                     }
+                  }
+                  .release {
+                     font-size: 13px;
+                  }
+               }
+            }
+         }
+      }
+      .watchlist-container {
+         margin: 0px;
+         height: 600px;
+         overflow-y: auto;
+         .render-watchlist {
+            .watchlist-item {
+               img {
+                  height: 100px;
+                  width: auto;
+               }
+               .info {
+                  .title {
+                     font-size: 15px;
+                     span {
+                        font-size: 14px;
+                     }
+                  }
+                  .release {
+                     font-size: 13px;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+@media screen and (min-width: 1050px) {
+   .favourites-container {
+      margin: 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      .likes-container {
+         height: 400px;
+         margin-bottom: 20px;
+         overflow-y: auto;
+      }
+      .watchlist-container {
+         height: 400px;
+         overflow-y: auto;
+      }
+   }
+}

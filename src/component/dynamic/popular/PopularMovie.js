@@ -1,10 +1,12 @@
 import React from "react";
 import { FaHeart, FaArrowRight, FaPlus } from "react-icons/fa";
 import { shortenPars } from "../../../globals/shortenPars";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { formatDate } from "../../../globals/formatDate";
 import { percentNumber, ratingColor } from "../../../globals/utilities";
-
+//! Manage Favourites
+import { addLikes, removeLikes } from "../../../globals/likes";
+import { addWatchlist, removeWatchlist } from "../../../globals/watchlist";
 const PopularMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
    return (
       <article
@@ -30,11 +32,23 @@ const PopularMovie = ({ title, score, id, poster, backdrop, release, overview })
                   <p> Rating </p>
                </div>
                <div className="like">
-                  <FaHeart color="black" /> <p>Like</p>
+                  <FaHeart
+                     className={`heart-${id}`}
+                     color="black"
+                     onClick={() => {
+                        addLikes(title, id, score, poster, release);
+                     }}
+                  />{" "}
+                  <p>Like</p>
                </div>
 
                <div className="watchlist">
-                  <FaPlus color="black" />
+                  <FaPlus
+                     color="black"
+                     onClick={() => {
+                        addWatchlist(title, id, score, poster);
+                     }}
+                  />
                   <p> Add to Watchlist</p>
                </div>
 
