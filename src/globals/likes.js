@@ -20,8 +20,6 @@ export const addLikes = (title, id, rating, poster, release) => {
    console.log(indexOfQuery);
    if (indexOfQuery < 0) {
       response_likes.push(movieToBeAdded);
-   } else {
-      console.log("Already Added");
    }
 
    localStorage.setItem("Likes", JSON.stringify(response_likes));

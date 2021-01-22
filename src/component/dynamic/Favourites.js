@@ -14,8 +14,6 @@ import { FaHeart, FaPlus } from "react-icons/fa";
 const Favourites = () => {
    const [liked, setLiked] = useState(null);
    const [watchlist, setWatchlist] = useState(null);
-   let likesIsEmpty = true;
-   let watchlistIsEmpty = true;
    //* Likes
    const fetchLocalStorage = () => {
       //Likes
@@ -25,21 +23,6 @@ const Favourites = () => {
       //Watchlist
       const data_watchlist = localStorage.getItem("Watchlist");
       const response_watchlist = JSON.parse(data_watchlist);
-
-      if (response_liked.length > 0) {
-         console.log("Liked not empty");
-         likesIsEmpty = false;
-      } else {
-         console.log("Liked Empty!");
-         likesIsEmpty = true;
-      }
-      if (response_watchlist.length > 0) {
-         console.log("Watchlist not empty");
-         watchlistIsEmpty = false;
-      } else {
-         console.log("Watchlist empty!");
-         watchlistIsEmpty = true;
-      }
 
       //Set State
       setLiked(response_liked);
@@ -64,8 +47,6 @@ const Favourites = () => {
                      My Likes
                   </h2>
                   <div className="render-likes">
-                     {console.log(likesIsEmpty)}
-                     {console.log(watchlistIsEmpty)}
                      {/* Map all liked items from local storage */}
                      {liked !== null &&
                         liked.map((movie) => {

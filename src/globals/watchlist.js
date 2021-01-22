@@ -19,8 +19,6 @@ export const addWatchlist = (title, id, rating, poster) => {
    console.log(indexOfQuery);
    if (indexOfQuery < 0) {
       response_watchlist.push(movieToBeAdded);
-   } else {
-      console.log("Already Added");
    }
 
    localStorage.setItem("Watchlist", JSON.stringify(response_watchlist));
