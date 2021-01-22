@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { FaHeart, FaPlus, FaUserAlt, FaStar, FaClock } from "react-icons/fa";
 import { formatDate } from "../../globals/formatDate";
 import { floorNumber, percentNumber, ratingColor } from "../../globals/utilities";
+
 //Components
 import Header from "../static/Header";
 import Footer from "../static/Footer";
