@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import { FaHeart, FaPlus, FaUserAlt, FaStar, FaClock } from "react-icons/fa";
 import { formatDate } from "../../globals/formatDate";
 import { floorNumber, percentNumber, ratingColor } from "../../globals/utilities";
+import { toggleHeart } from "../../globals/heart";
+import { togglePlus } from "../../globals/plus";
+import { addLikes, removeLikes } from "../../globals/likes";
+import { addWatchlist, removeWatchlist } from "../../globals/watchlist";
 
 //Components
 import Header from "../static/Header";
@@ -37,22 +41,43 @@ const Single = (match) => {
    };
    window.onload = () => {
       changeBackdropToCurrent();
+      setButtonStatus();
    };
+   const [heartState, setHeartState] = useState(false);
+   const [plusState, setPlusState] = useState(false);
 
    //? <------ fetch effect to run the function once on component render ------->
    useEffect(() => {
       fetchSingleItem();
       fetchCast();
       changeBackdropToCurrent();
+      setButtonStatus();
    }, []);
+
+   function setButtonStatus() {
+      if (movieInfo !== null) {
+         if (toggleHeart(movieInfo.id) == true) {
+            setHeartState(true);
+         } else {
+            setHeartState(false);
+         }
+         if (togglePlus(movieInfo.id) == true) {
+            setPlusState(true);
+         } else {
+            setPlusState(false);
+         }
+         console.log(heartState);
+         console.log(plusState);
+      }
+   }
 
    //? <------ console.log() the movieInfo object ------->
    // if (movieInfo !== null) {
    //    console.log(movieInfo);
    // }
-   if (cast !== null) {
-      console.log(cast);
-   }
+   // if (cast !== null) {
+   //    console.log(cast);
+   // }
 
    //* <---------- Render Component Below ------------>
    return (
@@ -113,14 +138,14 @@ const Single = (match) => {
                            {/* Action Buttons */}
                            <div className="single-action-btns">
                               <div className="single-votes">
-                                 <FaUserAlt size="1.5em" color="black" />
+                                 <FaUserAlt size="1.5em" color="white" />
                                  <p>
                                     {floorNumber(movieInfo.vote_count)} <br />
                                     Votes
                                  </p>
                               </div>
                               <div className="single-popularity">
-                                 <FaStar size="1.5em" color="black" />
+                                 <FaStar size="1.5em" color="white" />
                                  <p>
                                     {" "}
                                     {floorNumber(movieInfo.popularity)} <br />
@@ -128,11 +153,50 @@ const Single = (match) => {
                                  </p>
                               </div>
                               <div className="single-like">
-                                 <FaHeart size="1.5em" color="black" />
+                                 <FaHeart
+                                    size="1.5em"
+                                    color={
+                                       heartState == true && movieInfo !== null ? "red" : "white"
+                                    }
+                                    onClick={() => {
+                                       addLikes(
+                                          movieInfo.title,
+                                          movieInfo.id,
+                                          movieInfo.vote_average,
+                                          movieInfo.poster_path,
+                                          movieInfo.release
+                                       );
+                                       toggleHeart(movieInfo.id);
+                                       setHeartState(true);
+                                       if (heartState == true) {
+                                          removeLikes(movieInfo.id);
+                                          setHeartState(false);
+                                       }
+                                    }}
+                                 />
                                  <p>Like</p>
                               </div>
                               <div className="single-watchlist">
-                                 <FaPlus size="1.5em" color="black" />
+                                 <FaPlus
+                                    size="1.5em"
+                                    color={plusState == true ? "#4CB396" : "white"}
+                                    // Toggles the watchlist
+                                    onClick={() => {
+                                       addWatchlist(
+                                          movieInfo.title,
+                                          movieInfo.id,
+                                          movieInfo.vote_average,
+                                          movieInfo.poster_path,
+                                          movieInfo.release
+                                       );
+                                       togglePlus(movieInfo.id);
+                                       setPlusState(true);
+                                       if (plusState == true) {
+                                          removeWatchlist(movieInfo.id);
+                                          setPlusState(false);
+                                       }
+                                    }}
+                                 />
                                  <p>Watchlist</p>
                               </div>
                            </div>

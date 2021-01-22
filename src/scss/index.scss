@@ -30,7 +30,7 @@ body {
    width: 100%;
    @include backdrop-prop;
    background-color: $col1;
-   transition: background-image 0.3s ease;
+   transition: background-image 0.5s ease-out;
    .wrapper {
       width: inherit;
       background-color: rgba($col2, 0.9);
@@ -56,6 +56,8 @@ body {
          flex-direction: row;
          justify-content: space-between;
          align-items: flex-start;
+         border-top: 1px solid $accent;
+         border-bottom: 3px solid $accent;
          @include backdrop-prop;
       }
    }

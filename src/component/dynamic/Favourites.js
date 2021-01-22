@@ -5,7 +5,6 @@ import { formatDate } from "../../globals/formatDate";
 import { percentNumber, ratingColor } from "../../globals/utilities";
 import { removeWatchlist } from "../../globals/watchlist";
 import { removeLikes } from "../../globals/likes";
-//Components
 import Header from "../static/Header";
 import Footer from "../static/Footer";
 import Sidebar from "../static/Sidebar";
@@ -28,6 +27,7 @@ const Favourites = () => {
       setLiked(response_liked);
       setWatchlist(response_watchlist);
    };
+
    useEffect(() => {
       fetchLocalStorage();
    }, []);
@@ -48,10 +48,12 @@ const Favourites = () => {
                   </h2>
                   <div className="render-likes">
                      {/* Map all liked items from local storage */}
-                     {liked !== null &&
-                        liked.map((movie) => {
+                     {liked == undefined || liked.length == 0 ? (
+                        <h2 className="no-likes">Nothing to see here!</h2>
+                     ) : (
+                        liked.map((movie, i) => {
                            return (
-                              <div className="likes-item">
+                              <div className={`likes-item likes-item-${movie.movieId}`}>
                                  <img
                                     src={`https://www.themoviedb.org/t/p/original${movie.moviePoster}`}
                                     alt={`${movie.movieId}`}
@@ -75,18 +77,25 @@ const Favourites = () => {
                                           onClick={() => {
                                              removeLikes(movie.movieId);
                                              fetchLocalStorage();
+
+                                             let itemSelector = document.querySelector(
+                                                `div.likes-item-${movie.movieId}`
+                                             );
+                                             console.log(itemSelector);
+                                             itemSelector.classList.add("remove-animation");
                                           }}
                                        >
                                           Remove
                                        </button>
                                        <button className="more-info">
-                                          <Link>More Info</Link>
+                                          <Link to={`/info/${movie.movieId}`}>More Info</Link>
                                        </button>
                                     </div>
                                  </div>
                               </div>
                            );
-                        })}
+                        })
+                     )}
                   </div>
                </div>
 
@@ -100,7 +109,9 @@ const Favourites = () => {
                   </h2>
                   <div className="render-watchlist">
                      {/* Watchlist Items */}
-                     {watchlist !== null &&
+                     {watchlist == undefined || watchlist.length == 0 ? (
+                        <h2 className="no-watchlist">Nothing to see here!</h2>
+                     ) : (
                         watchlist.map((movie) => {
                            return (
                               <div className="watchlist-item">
@@ -132,13 +143,14 @@ const Favourites = () => {
                                           Remove
                                        </button>
                                        <button className="more-info">
-                                          <Link>More Info</Link>
+                                          <Link to={`/info/${movie.movieId}`}>More Info</Link>
                                        </button>
                                     </div>
                                  </div>
                               </div>
                            );
-                        })}
+                        })
+                     )}
                   </div>
                </div>
             </div>

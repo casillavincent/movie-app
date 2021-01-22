@@ -21,6 +21,11 @@
       }
    }
    .likes-container {
+      overflow-x: hidden;
+      .no-likes {
+         font-weight: $subHeading;
+         font-size: 20px;
+      }
       .title-likes {
          font-size: 18px;
       }
@@ -33,6 +38,7 @@
             margin: 15px;
             border-bottom: 2px solid rgba(lightgray, 0.9);
             padding-bottom: 15px;
+            transition: all 0.3s ease;
             img {
                height: 150px;
                width: auto;
@@ -85,6 +91,10 @@
       }
    }
    .watchlist-container {
+      .no-watchlist {
+         font-weight: $subHeading;
+         font-size: 20px;
+      }
       .title-watchlist {
          font-size: 18px;
       }

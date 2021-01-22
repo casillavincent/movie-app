@@ -18,13 +18,11 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
       if (toggleHeart(id) == true) {
          setHeartState(true);
       } else {
-         console.log("Not in local storage");
          setHeartState(false);
       }
       if (togglePlus(id) == true) {
          setPlusState(true);
       } else {
-         console.log("Not in local storage");
          setPlusState(false);
       }
    }, []);

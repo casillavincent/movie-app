@@ -12,6 +12,7 @@ header {
    top: 0px;
    left: 0px;
    z-index: 999;
+   border-top: 1px solid $accent;
    h1 {
       text-transform: uppercase;
       color: $accent;

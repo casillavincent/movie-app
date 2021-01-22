@@ -108,13 +108,49 @@
                   justify-content: flex-start;
                   align-items: center;
                   height: 100px;
-                  svg {
-                     fill: white;
-                  }
+                  transition: all 0.2s ease;
+
                   p {
                      font-size: 12px;
                      text-align: center;
                      margin-top: 10px;
+                  }
+               }
+               .single-like svg {
+                  cursor: pointer;
+                  &:hover {
+                     animation: jello-horizontal 0.9s both;
+                     fill: red;
+                  }
+               }
+               .single-watchlist svg {
+                  cursor: pointer;
+                  &:hover {
+                     animation: jello-horizontal 0.9s both;
+                     fill: #4cb396;
+                  }
+               }
+               @keyframes jello-horizontal {
+                  0% {
+                     transform: scale3d(1, 1, 1);
+                  }
+                  30% {
+                     transform: scale3d(1.25, 0.75, 1);
+                  }
+                  40% {
+                     transform: scale3d(0.75, 1.25, 1);
+                  }
+                  50% {
+                     transform: scale3d(1.15, 0.85, 1);
+                  }
+                  65% {
+                     transform: scale3d(0.95, 1.05, 1);
+                  }
+                  75% {
+                     transform: scale3d(1.05, 0.95, 1);
+                  }
+                  100% {
+                     transform: scale3d(1, 1, 1);
                   }
                }
             }
@@ -128,7 +164,7 @@
          background: rgba(white, 0.9);
          backdrop-filter: $defBlur;
          margin: auto;
-         border-radius: 5px;
+         border-radius: 3px;
          width: 95%;
          hr {
             opacity: 0.5;
