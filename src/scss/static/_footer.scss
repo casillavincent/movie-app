@@ -12,7 +12,13 @@ footer {
    height: 120px;
    font-weight: $text;
 
-   //* All Columns
+   @media screen and (min-width: 1050px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+   }
+   //* <---- All Columns ---->
    .column {
       padding: 15px;
       .footer-large-text {
@@ -23,19 +29,19 @@ footer {
       }
    }
 
-   //* Column 01
+   //* <---- Column 01 ---->
    .column01 {
       .react-logo {
          display: flex;
       }
    }
 
-   //* Column 02
+   //* <---- Column 02 ---->
    .column02 {
       text-align: center;
    }
 
-   //* Column 03
+   //* <---- Column 03 ---->
    .column03 {
       text-align: right;
       .social-menu {
@@ -50,13 +56,3 @@ footer {
       }
    }
 }
-
-//! <---- Tablet/Desktop ----->
-@media screen and (min-width: 1050px) {
-   footer {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-   }
-} ;

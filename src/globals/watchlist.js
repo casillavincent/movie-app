@@ -16,7 +16,6 @@ export const addWatchlist = (title, id, rating, poster) => {
 
    //* Check if the id of the movie exists in the local storage array
    const indexOfQuery = response_watchlist.findIndex((movie) => id == movie.movieId);
-   console.log(indexOfQuery);
    if (indexOfQuery < 0) {
       response_watchlist.push(movieToBeAdded);
    }
@@ -31,14 +30,11 @@ export const removeWatchlist = (id) => {
 
    //* Check if the id of the movie exists in the local storage array
    const indexOfQuery = response_watchlist.findIndex((movie) => id == movie.movieId);
-   console.log(indexOfQuery);
 
    //* Remove the index of the id from local storage
    //* Check if the indexQuery exists (not -1)
    if (indexOfQuery > -1) {
       response_watchlist.splice(indexOfQuery, 1);
-   } else {
-      console.log("ID doesnt exists");
    }
 
    //* Store to local storage

@@ -8,6 +8,7 @@ import { percentNumber, ratingColor } from "../../globals/utilities";
 const Sidebar = () => {
    //? <----- fetch data ----->
    const [latest, setLatest] = useState(null);
+   const [trending, setTrending] = useState(null);
    const latest_url = `https://api.themoviedb.org/3/movie/latest?api_key=${api_key}&language=en-US`;
 
    const fetchLatest = async () => {
@@ -16,7 +17,6 @@ const Sidebar = () => {
       setLatest(data_response);
    };
 
-   const [trending, setTrending] = useState(null);
    const fetchTrending = async () => {
       const data_trending = await fetch(
          `https://api.themoviedb.org/3/trending/movie/day?api_key=${api_key}`

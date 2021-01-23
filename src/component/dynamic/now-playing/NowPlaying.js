@@ -24,9 +24,6 @@ const NowPlaying = () => {
    useEffect(() => {
       fetchNowPlaying();
    }, []);
-   // if (nowPlaying !== null) {
-   //    console.log(nowPlaying);
-   // }
    // <----- Current Page ------>
    const [isNowPlaying, setIsNowPlaying] = useState(true);
    if (isNowPlaying == true && nowPlaying !== null) {

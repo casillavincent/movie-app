@@ -24,9 +24,6 @@ const Popular = () => {
    useEffect(() => {
       fetchPopularMovies();
    }, []);
-   if (popularMovies !== null) {
-      console.log(popularMovies);
-   }
 
    // <----- Current Page ------>
    const [isPopular, setIsPopular] = useState(true);

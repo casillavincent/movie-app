@@ -54,14 +54,13 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
                <Link>
                   <div className="like">
                      <FaHeart
-                        size="1.3em"
+                        size="1.1em"
                         color={heartState == true ? "red" : "black"}
                         onClick={() => {
                            addLikes(title, id, score, poster, release);
                            toggleHeart(id);
                            setHeartState(true);
                            if (heartState == true) {
-                              console.log("Removing Movie: " + title);
                               removeLikes(id);
                               setHeartState(false);
                            }
@@ -74,7 +73,7 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
                <Link>
                   <div className="watchlist">
                      <FaPlus
-                        size="1.3em"
+                        size="1.1em"
                         color="black"
                         color={plusState == true ? "#4CB396" : "black"}
                         // Toggles the watchlist
@@ -83,7 +82,6 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
                            togglePlus(id);
                            setPlusState(true);
                            if (plusState == true) {
-                              console.log("Removing Movie: " + title);
                               removeWatchlist(id);
                               setPlusState(false);
                            }
@@ -95,7 +93,7 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
 
                <Link to={`/info/${id}`}>
                   <div className="more-info">
-                     <FaArrowRight color="black" size="1.3em" />
+                     <FaArrowRight color="black" size="1.1em" />
                      <p> More Info</p>
                   </div>
                </Link>

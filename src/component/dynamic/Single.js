@@ -8,7 +8,6 @@ import { toggleHeart } from "../../globals/heart";
 import { togglePlus } from "../../globals/plus";
 import { addLikes, removeLikes } from "../../globals/likes";
 import { addWatchlist, removeWatchlist } from "../../globals/watchlist";
-import { refreshSingle } from "../../globals/refreshSingle";
 
 //Components
 import Header from "../static/Header";
@@ -16,9 +15,6 @@ import Footer from "../static/Footer";
 import Sidebar from "../static/Sidebar";
 
 const Single = (match) => {
-   const [heartState, setHeartState] = useState(false);
-   const [plusState, setPlusState] = useState(false);
-
    //? <------- fetch the individual movie info --------->
    const [movieInfo, setMovieInfo] = useState(null);
    const fetchSingleItem = async () => {
@@ -38,6 +34,16 @@ const Single = (match) => {
       setCast(response_cast);
    };
 
+   //Fetch video
+   const [videos, setVideos] = useState(null);
+   const fetchVideos = async () => {
+      let url = `https://api.themoviedb.org/3/movie/${match.match.params.id}/videos?api_key=${api_key}&language=en-US`;
+      const data_videos = await fetch(url);
+      const response_videos = await data_videos.json();
+      setVideos(response_videos);
+      // console.log(response_videos.results);
+   };
+
    //! <----- Utility for changing the background to current movie on load ------>
    const changeBackdropToCurrent = () => {
       let bodySelector = window.document.querySelector("body");
@@ -46,16 +52,18 @@ const Single = (match) => {
          bodySelector.style.backgroundImage = `url(${url})`;
       }
    };
+   //? <--------- Set the icon state for like and watchlist --------->
+   const [heartState, setHeartState] = useState(false);
+   const [plusState, setPlusState] = useState(false);
 
    //? <------ fetch effect to run the function once on component render ------->
    useEffect(() => {
       fetchSingleItem();
       fetchCast();
+      fetchVideos();
    }, []);
 
-   window.onload = () => {
-      changeBackdropToCurrent();
-   };
+   changeBackdropToCurrent();
 
    //* <---------- Render Component Below ------------>
    return (
@@ -66,7 +74,7 @@ const Single = (match) => {
             <Sidebar />
             <div className="single-container">
                <div className="render-single">
-                  {/* <----- Above the fold info -----> */}
+                  {/* <----- Top general info -----> */}
                   <div className="movie-overview">
                      <img
                         src={movieInfo !== null && `${poster_base}${movieInfo.poster_path}`}
@@ -74,6 +82,7 @@ const Single = (match) => {
                         width="250"
                         className="poster"
                      />
+
                      {/* <-------- General Info Section ----------> */}
                      {movieInfo !== null && (
                         <div className="general-info">
@@ -133,9 +142,7 @@ const Single = (match) => {
                               <div className="single-like">
                                  <FaHeart
                                     size="1.5em"
-                                    color={
-                                       heartState == true && movieInfo !== null ? "red" : "white"
-                                    }
+                                    color={toggleHeart(movieInfo.id) == true ? "red" : "white"}
                                     onClick={() => {
                                        addLikes(
                                           movieInfo.title,
@@ -157,7 +164,7 @@ const Single = (match) => {
                               <div className="single-watchlist">
                                  <FaPlus
                                     size="1.5em"
-                                    color={plusState == true ? "#4CB396" : "white"}
+                                    color={togglePlus(movieInfo.id) == true ? "#4CB396" : "white"}
                                     // Toggles the watchlist
                                     onClick={() => {
                                        addWatchlist(
@@ -181,6 +188,23 @@ const Single = (match) => {
                         </div>
                      )}
                   </div>
+
+                  {/* <---------- Trailer -------------> */}
+                  {videos !== null && (
+                     <div className="trailer">
+                        <h2 className="trailer-title">{videos.results[0].name}</h2>
+                        <hr />
+                        <iframe
+                           width="560"
+                           height="315"
+                           src={`https://www.youtube.com/embed/${videos.results[0].key}`}
+                           frameborder="0"
+                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                           allowfullscreen
+                           title="Video"
+                        ></iframe>
+                     </div>
+                  )}
 
                   {/* <---------- Cast and Crew --------------> */}
                   <div className="cast">

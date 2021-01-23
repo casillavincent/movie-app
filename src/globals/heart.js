@@ -5,10 +5,8 @@ export const toggleHeart = (id) => {
    if (localStorage.Likes !== undefined) {
       const indexOfQuery = response_likes.findIndex((movie) => id == movie.movieId);
       if (indexOfQuery >= 0) {
-         console.log("This movie is in the local storage");
          return true;
       } else {
-         console.log("This movie is NOT in the local storage");
          return false;
       }
    }

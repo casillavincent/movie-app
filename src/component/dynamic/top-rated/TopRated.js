@@ -24,9 +24,7 @@ const TopRated = () => {
    useEffect(() => {
       fetchTopRatedMovies();
    }, []);
-   if (topRatedMovies !== null) {
-      console.log(topRatedMovies);
-   }
+
    // <----- Current Page ------>
    const [isTopRated, setisTopRated] = useState(true);
    if (isTopRated == true && topRatedMovies !== null) {

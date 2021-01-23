@@ -79,12 +79,6 @@ const Favourites = () => {
                                           onClick={() => {
                                              removeLikes(movie.movieId);
                                              fetchLocalStorage();
-
-                                             let itemSelector = document.querySelector(
-                                                `div.likes-item-${movie.movieId}`
-                                             );
-                                             console.log(itemSelector);
-                                             itemSelector.classList.add("remove-animation");
                                           }}
                                        >
                                           Remove

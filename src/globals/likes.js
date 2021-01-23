@@ -17,7 +17,6 @@ export const addLikes = (title, id, rating, poster, release) => {
 
    //* Check if the id of the movie exists in the local storage array
    const indexOfQuery = response_likes.findIndex((movie) => id === movie.movieId);
-   console.log(indexOfQuery);
    if (indexOfQuery < 0) {
       response_likes.push(movieToBeAdded);
    }
@@ -32,14 +31,11 @@ export const removeLikes = (id) => {
 
    //* Check if the id of the movie exists in the local storage array
    const indexOfQuery = response_likes.findIndex((movie) => id === movie.movieId);
-   console.log(indexOfQuery);
 
    //* Remove the index of the id from local storage
    //* Check if the indexQuery exists (not -1)
    if (indexOfQuery > -1) {
       response_likes.splice(indexOfQuery, 1);
-   } else {
-      console.log("ID doesnt exists");
    }
 
    //* Store to local storage

@@ -24,9 +24,6 @@ const Upcoming = () => {
    useEffect(() => {
       fetchUpcomingMovies();
    }, []);
-   if (upcomingMovies !== null) {
-      console.log(upcomingMovies);
-   }
    // <----- Current Page ------>
    const [isUpcoming, setisUpcoming] = useState(true);
    if (isUpcoming == true && upcomingMovies !== null) {

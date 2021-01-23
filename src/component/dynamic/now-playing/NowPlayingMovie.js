@@ -53,7 +53,7 @@ const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview
                </div>
                <div className="like">
                   <FaHeart
-                     size="1.3em"
+                     size="1.1em"
                      color={heartState == true ? "red" : "black"}
                      onClick={() => {
                         addLikes(title, id, score, poster, release);
@@ -72,7 +72,7 @@ const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview
                <Link>
                   <div className="watchlist">
                      <FaPlus
-                        size="1.3em"
+                        size="1.1em"
                         color="black"
                         color={plusState == true ? "#4CB396" : "black"}
                         // Toggles the watchlist
@@ -81,7 +81,6 @@ const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview
                            togglePlus(id);
                            setPlusState(true);
                            if (plusState == true) {
-                              console.log("Removing Movie: " + title);
                               removeWatchlist(id);
                               setPlusState(false);
                            }
@@ -93,7 +92,7 @@ const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview
 
                <Link to={`/info/${id}`}>
                   <div className="more-info">
-                     <FaArrowRight size="1.3em" color="black" />
+                     <FaArrowRight size="1.1em" color="black" />
                      <p> More Info</p>
                   </div>
                </Link>
