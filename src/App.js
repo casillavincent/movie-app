@@ -11,6 +11,7 @@ import Single from "./component/dynamic/Single";
 import TopRated from "./component/dynamic/top-rated/TopRated";
 import Upcoming from "./component/dynamic/upcoming/Upcoming";
 import NowPlaying from "./component/dynamic/now-playing/NowPlaying";
+import Credits from "./component/static/Credits";
 
 function App() {
    return (
@@ -28,6 +29,7 @@ function App() {
                <Route path="/favourites" component={Favourites} />
                <Route path="/about" component={About} />
                <Route path="/info/:id" component={Single} />
+               <Route path="/credits" component={Credits} />
             </Switch>
          </React.Fragment>
       </Router>

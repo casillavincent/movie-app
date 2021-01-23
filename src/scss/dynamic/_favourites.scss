@@ -3,6 +3,38 @@
 .favourites-container {
    margin-top: 75px;
    height: 100vh;
+   .remove {
+      &:hover {
+         animation: shake-bottom 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+      }
+
+      @keyframes shake-bottom {
+         0%,
+         100% {
+            transform: rotate(0deg);
+            transform-origin: 50% 100%;
+         }
+         10% {
+            transform: rotate(2deg);
+         }
+         20%,
+         40%,
+         60% {
+            transform: rotate(-4deg);
+         }
+         30%,
+         50%,
+         70% {
+            transform: rotate(4deg);
+         }
+         80% {
+            transform: rotate(-2deg);
+         }
+         90% {
+            transform: rotate(2deg);
+         }
+      }
+   }
    .likes-container,
    .watchlist-container {
       width: 95%;
@@ -69,6 +101,7 @@
                      margin-right: 10px;
                      cursor: pointer;
                      background-color: transparent;
+                     border-radius: 2px;
                      a {
                         text-decoration: none;
                         color: inherit;
@@ -80,6 +113,12 @@
                   .remove {
                      border: 1px solid red;
                      color: red;
+                     transition: all 0.15s ease-out;
+
+                     &:hover {
+                        background-color: red;
+                        color: white;
+                     }
                   }
                   .more-info {
                      border-style: none;
@@ -137,6 +176,8 @@
                      margin-right: 10px;
                      cursor: pointer;
                      background-color: transparent;
+                     border-radius: 2px;
+
                      a {
                         text-decoration: none;
                         color: inherit;
@@ -148,11 +189,22 @@
                   .remove {
                      border: 1px solid red;
                      color: red;
+                     transition: all 0.15s ease-out;
+
+                     &:hover {
+                        background-color: red;
+                        color: white;
+                     }
                   }
                   .more-info {
                      border-style: none;
                      border: 1px solid lightgray;
                      color: slategray;
+
+                     &:hover {
+                        background-color: slategray;
+                        color: white;
+                     }
                   }
                }
             }

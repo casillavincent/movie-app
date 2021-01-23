@@ -1,0 +1,17 @@
+@import "../globals.scss";
+.credits-container {
+   color: $accent;
+   margin: 100px auto auto auto;
+   width: 95%;
+   height: 100vh;
+   @media screen and (min-width: 1050px) {
+      margin: 0px;
+   }
+   div {
+      margin-top: 15px;
+      a {
+         color: white;
+         text-decoration: none;
+      }
+   }
+}

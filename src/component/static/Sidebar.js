@@ -37,7 +37,9 @@ const Sidebar = () => {
       if (mql.matches == true) {
          sidebar.classList.add("sidebar-on");
       } else {
-         sidebar.classList.remove("sidebar-on");
+         if (sidebar.classList.contains("sidebar-on")) {
+            sidebar.classList.remove("sidebar-on");
+         }
       }
    });
 
