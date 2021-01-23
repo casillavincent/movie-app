@@ -8,7 +8,7 @@ export const addLikes = (title, id, rating, poster, release) => {
       movieRelease: release,
    };
    //If Likes doesnt exist create it in local storage
-   if (localStorage.Likes == undefined) {
+   if (localStorage.Likes === undefined) {
       localStorage.setItem("Likes", JSON.stringify([]));
    }
 
@@ -16,7 +16,7 @@ export const addLikes = (title, id, rating, poster, release) => {
    const response_likes = JSON.parse(data_likes);
 
    //* Check if the id of the movie exists in the local storage array
-   const indexOfQuery = response_likes.findIndex((movie) => id == movie.movieId);
+   const indexOfQuery = response_likes.findIndex((movie) => id === movie.movieId);
    console.log(indexOfQuery);
    if (indexOfQuery < 0) {
       response_likes.push(movieToBeAdded);
@@ -31,7 +31,7 @@ export const removeLikes = (id) => {
    const response_likes = JSON.parse(data_likes);
 
    //* Check if the id of the movie exists in the local storage array
-   const indexOfQuery = response_likes.findIndex((movie) => id == movie.movieId);
+   const indexOfQuery = response_likes.findIndex((movie) => id === movie.movieId);
    console.log(indexOfQuery);
 
    //* Remove the index of the id from local storage

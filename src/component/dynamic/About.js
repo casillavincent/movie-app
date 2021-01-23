@@ -3,6 +3,7 @@ import Sidebar from "../static/Sidebar";
 import Footer from "../static/Footer";
 import Header from "../static/Header";
 import { useState, useEffect } from "react";
+import { FaReact } from "react-icons/fa";
 
 const About = () => {
    const [isAbout, setIsAbout] = useState(true);
@@ -42,7 +43,16 @@ const About = () => {
                </div>
                {/* Powered By React */}
                <div className="react-info">
-                  <h2 className="title">Powered By React.JS</h2>
+                  <h2 className="title">
+                     {" "}
+                     Powered By{" "}
+                     <FaReact
+                        color="#61DAFB"
+                        size="0.7em"
+                        style={{ marginRight: "4px", marginLeft: "7px" }}
+                     />
+                     React.JS
+                  </h2>
                   <p className="description">
                      Butter.DB is a small project that combines HTML5, SCSS, Javascript, React.JS to
                      create a simple full stack application.

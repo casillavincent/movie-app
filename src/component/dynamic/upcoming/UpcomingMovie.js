@@ -54,6 +54,7 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
                <Link>
                   <div className="like">
                      <FaHeart
+                        size="1.3em"
                         color={heartState == true ? "red" : "black"}
                         onClick={() => {
                            addLikes(title, id, score, poster, release);
@@ -73,6 +74,7 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
                <Link>
                   <div className="watchlist">
                      <FaPlus
+                        size="1.3em"
                         color="black"
                         color={plusState == true ? "#4CB396" : "black"}
                         // Toggles the watchlist
@@ -93,7 +95,7 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
 
                <Link to={`/info/${id}`}>
                   <div className="more-info">
-                     <FaArrowRight color="black" />
+                     <FaArrowRight color="black" size="1.3em" />
                      <p> More Info</p>
                   </div>
                </Link>

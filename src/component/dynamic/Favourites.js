@@ -49,7 +49,9 @@ const Favourites = () => {
                   <div className="render-likes">
                      {/* Map all liked items from local storage */}
                      {liked == undefined || liked.length == 0 ? (
-                        <h2 className="no-likes">Nothing to see here!</h2>
+                        <h2 className="no-likes">
+                           Nothing to see here! Go back and add movies you like.
+                        </h2>
                      ) : (
                         liked.map((movie, i) => {
                            return (
@@ -110,7 +112,9 @@ const Favourites = () => {
                   <div className="render-watchlist">
                      {/* Watchlist Items */}
                      {watchlist == undefined || watchlist.length == 0 ? (
-                        <h2 className="no-watchlist">Nothing to see here!</h2>
+                        <h2 className="no-watchlist">
+                           Nothing to see here! Add movies you want to see.
+                        </h2>
                      ) : (
                         watchlist.map((movie) => {
                            return (

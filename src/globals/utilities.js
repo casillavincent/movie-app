@@ -14,7 +14,7 @@ export const ratingColor = (rating) => {
    if (rating > 7) {
       return "#4CB396";
    } else if (rating < 7 && rating > 5.5) {
-      return "#EA8824";
+      return "#7995E6";
    } else {
       return "#FE3736";
    }

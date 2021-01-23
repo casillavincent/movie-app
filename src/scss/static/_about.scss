@@ -4,9 +4,11 @@
    width: 100%;
    margin-top: 75px;
    margin-bottom: 250px;
+   color: white;
    h2 {
       font-weight: $heading;
       font-size: 20px;
+      color: $accent;
    }
    p {
       font-size: 15px;
@@ -16,7 +18,7 @@
    .app-info,
    .tmdb-info,
    .react-info {
-      background-color: rgba(white, 0.9);
+      background-color: rgba(#1a1e2b, 0.95);
       backdrop-filter: $defBlur;
       margin-top: 20px;
       margin-bottom: 20px;
@@ -37,7 +39,7 @@
    }
    .tmdb-info {
       img {
-         height: 15px;
+         height: 11px;
          width: auto;
          margin-bottom: 5px;
       }

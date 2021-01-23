@@ -8,12 +8,17 @@ import { toggleHeart } from "../../globals/heart";
 import { togglePlus } from "../../globals/plus";
 import { addLikes, removeLikes } from "../../globals/likes";
 import { addWatchlist, removeWatchlist } from "../../globals/watchlist";
+import { refreshSingle } from "../../globals/refreshSingle";
 
 //Components
 import Header from "../static/Header";
 import Footer from "../static/Footer";
 import Sidebar from "../static/Sidebar";
+
 const Single = (match) => {
+   const [heartState, setHeartState] = useState(false);
+   const [plusState, setPlusState] = useState(false);
+
    //? <------- fetch the individual movie info --------->
    const [movieInfo, setMovieInfo] = useState(null);
    const fetchSingleItem = async () => {
@@ -23,6 +28,7 @@ const Single = (match) => {
       const response_id = await data_id.json();
       setMovieInfo(response_id);
    };
+
    //? <------ fetch the individual movie cast --------->
    const [cast, setCast] = useState(null);
    const fetchCast = async () => {
@@ -31,6 +37,7 @@ const Single = (match) => {
       const response_cast = await data_cast.json();
       setCast(response_cast);
    };
+
    //! <----- Utility for changing the background to current movie on load ------>
    const changeBackdropToCurrent = () => {
       let bodySelector = window.document.querySelector("body");
@@ -39,45 +46,16 @@ const Single = (match) => {
          bodySelector.style.backgroundImage = `url(${url})`;
       }
    };
-   window.onload = () => {
-      changeBackdropToCurrent();
-      setButtonStatus();
-   };
-   const [heartState, setHeartState] = useState(false);
-   const [plusState, setPlusState] = useState(false);
 
    //? <------ fetch effect to run the function once on component render ------->
    useEffect(() => {
       fetchSingleItem();
       fetchCast();
-      changeBackdropToCurrent();
-      setButtonStatus();
    }, []);
 
-   function setButtonStatus() {
-      if (movieInfo !== null) {
-         if (toggleHeart(movieInfo.id) == true) {
-            setHeartState(true);
-         } else {
-            setHeartState(false);
-         }
-         if (togglePlus(movieInfo.id) == true) {
-            setPlusState(true);
-         } else {
-            setPlusState(false);
-         }
-         console.log(heartState);
-         console.log(plusState);
-      }
-   }
-
-   //? <------ console.log() the movieInfo object ------->
-   // if (movieInfo !== null) {
-   //    console.log(movieInfo);
-   // }
-   // if (cast !== null) {
-   //    console.log(cast);
-   // }
+   window.onload = () => {
+      changeBackdropToCurrent();
+   };
 
    //* <---------- Render Component Below ------------>
    return (
