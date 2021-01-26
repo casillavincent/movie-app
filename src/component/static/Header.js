@@ -14,7 +14,7 @@ const Header = () => {
          {/* Logo */}
          <Link to={"/"} style={{ textDecoration: "none" }}>
             <div className="logo">
-               <h1>butter.db</h1>
+               <h1>Butter.DB</h1>
             </div>
          </Link>
          {/* Navigation */}

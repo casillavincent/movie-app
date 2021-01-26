@@ -37,7 +37,14 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
       >
          <div className="poster">
             <Link to={`/info/${id}`}>
-               <img src={`https://www.themoviedb.org/t/p/original${poster}`} alt={title} />
+               <img
+                  src={
+                     poster !== null
+                        ? `https://www.themoviedb.org/t/p/original${poster}`
+                        : "/assets/bank-poster.jpg"
+                  }
+                  alt={title}
+               />
             </Link>
          </div>
          <div className="info">

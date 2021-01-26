@@ -9,7 +9,7 @@ const Landing = () => {
       <div className="landing">
          <div className="landing-wrapper">
             <div className="content">
-               <h1>Butter.db</h1>
+               <h1>Butter.DB</h1>
                <p>Get updates on the movies you want to see!</p>
                <div className="hotlinks">
                   <div className="popular">

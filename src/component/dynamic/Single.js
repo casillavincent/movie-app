@@ -64,6 +64,7 @@ const Single = (match) => {
    }, []);
 
    changeBackdropToCurrent();
+   console.log(movieInfo);
 
    //* <---------- Render Component Below ------------>
    return (
@@ -77,7 +78,11 @@ const Single = (match) => {
                   {/* <----- Top general info -----> */}
                   <div className="movie-overview">
                      <img
-                        src={movieInfo !== null && `${poster_base}${movieInfo.poster_path}`}
+                        src={
+                           movieInfo !== null && movieInfo.poster_path !== null
+                              ? `${poster_base}${movieInfo.poster_path}`
+                              : `/assets/blank-poster.jpg`
+                        }
                         alt={movieInfo !== null && `${movieInfo.title}`}
                         width="250"
                         className="poster"
@@ -98,7 +103,7 @@ const Single = (match) => {
                               {movieInfo.title}{" "}
                            </h1>
                            <hr />
-                           <ul className="header">
+                           {/* <ul className="header">
                               <li className="adult">
                                  {movieInfo.adult === true ? "Rated-R" : "PG-13"}
                               </li>
@@ -108,7 +113,7 @@ const Single = (match) => {
                               <li className="language">
                                  {movieInfo.spoken_languages[0].english_name}
                               </li>
-                           </ul>
+                           </ul> */}
 
                            <h2 className="release">
                               <span>Release Date:</span> {formatDate(movieInfo.release_date)}

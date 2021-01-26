@@ -69,7 +69,7 @@
             }
 
             .release {
-               font-size: 17px;
+               font-size: 15px;
                margin-bottom: 10px;
                font-style: italic;
                span {
@@ -84,12 +84,12 @@
             }
 
             .overview-title {
-               font-size: 20px;
+               font-size: 15px;
                font-weight: $subHeading;
                margin-bottom: 5px;
             }
             .overview {
-               font-size: 15px;
+               font-size: 13px;
                margin-bottom: 20px;
             }
 
@@ -173,7 +173,7 @@
          }
          .cast-title {
             margin-bottom: 10px;
-            font-size: 20px;
+            font-size: 15px;
          }
          .render-cast {
             display: flex;
@@ -219,7 +219,7 @@
          background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 
          .trailer-title {
-            font-size: 20px;
+            font-size: 15px;
             font-weight: 700px;
             margin-bottom: 10px;
          }

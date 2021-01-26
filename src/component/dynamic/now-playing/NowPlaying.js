@@ -11,7 +11,7 @@ import { formatDate } from "../../../globals/formatDate";
 const NowPlaying = () => {
    //! <-------- useState Variable -------->
    const [nowPlaying, setNowPlaying] = useState(null);
-   //! <-------- Fetch data -------->
+   //! <-------------- Fetch data --------->
    const fetchNowPlaying = async () => {
       const data_now_playing = await fetch(
          `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=1`
@@ -20,7 +20,7 @@ const NowPlaying = () => {
       setNowPlaying(response_now_playing.results);
    };
 
-   //! <-------- useEffect -------->
+   //! <----------- useEffect -------------->
    useEffect(() => {
       fetchNowPlaying();
    }, []);
