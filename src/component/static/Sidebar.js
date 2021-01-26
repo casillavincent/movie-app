@@ -30,26 +30,29 @@ const Sidebar = () => {
    }, []);
 
    //? <---- utility for toggling sidebar on larger screens ---->
-   window.addEventListener("resize", () => {
-      let mql = window.matchMedia("(min-width: 1050px)");
+   const isDesktop = (e) => {
       const sidebar = document.querySelector("aside");
 
-      if (mql.matches == true) {
+      if (e.matches) {
          sidebar.classList.add("sidebar-on");
       } else {
          if (sidebar.classList.contains("sidebar-on")) {
             sidebar.classList.remove("sidebar-on");
          }
       }
-   });
-
+   };
    useEffect(() => {
       let mql = window.matchMedia("(min-width: 1050px)");
       const sidebar = document.querySelector("aside");
 
-      if (mql.matches == true) {
+      mql.addListener(isDesktop);
+
+      if (mql.matches === true) {
          sidebar.classList.add("sidebar-on");
       }
+
+      //? Remove event listener if the sidebar component doesnt get mounted
+      return () => mql.removeListener(isDesktop);
    }, []);
 
    return (

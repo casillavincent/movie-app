@@ -31,6 +31,9 @@ const Favourites = () => {
    useEffect(() => {
       fetchLocalStorage();
    }, []);
+
+   console.log(liked);
+   console.log(watchlist);
    return (
       <React.Fragment>
          <Header />
@@ -53,7 +56,7 @@ const Favourites = () => {
                            Nothing to see here! Go back and add movies you like.
                         </h2>
                      ) : (
-                        liked.map((movie, i) => {
+                        liked.map((movie) => {
                            return (
                               <div className={`likes-item likes-item-${movie.movieId}`}>
                                  <img
@@ -129,7 +132,7 @@ const Favourites = () => {
                                           {percentNumber(movie.movieRating)}
                                        </span>
                                     </p>
-                                    <p className="release">January 15, 1996</p>
+                                    <p className="release">{formatDate(movie.movieRelease)}</p>
                                     <div className="action-btns">
                                        <button
                                           className="remove"

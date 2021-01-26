@@ -71,7 +71,7 @@ const PopularMovie = ({ title, score, id, poster, backdrop, release, overview })
                <div className="watchlist">
                   <FaPlus
                      size="1.1em"
-                     color={plusState == true ? "#4CB396" : "black"}
+                     color={plusState == true ? "#7995E6" : "black"}
                      // Toggles the watchlist
                      onClick={() => {
                         addWatchlist(title, id, score, poster, release);

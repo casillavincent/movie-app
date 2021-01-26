@@ -120,15 +120,15 @@
                .single-like svg {
                   cursor: pointer;
                   &:hover {
-                     animation: jello-horizontal 0.9s both;
+                     animation: jello-horizontal 0.75s both;
                      fill: red;
                   }
                }
                .single-watchlist svg {
                   cursor: pointer;
                   &:hover {
-                     animation: jello-horizontal 0.9s both;
-                     fill: #4cb396;
+                     animation: jello-horizontal 0.75s both;
+                     fill: $accent;
                   }
                }
                @keyframes jello-horizontal {

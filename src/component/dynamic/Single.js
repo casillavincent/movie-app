@@ -149,7 +149,7 @@ const Single = (match) => {
                                           movieInfo.id,
                                           movieInfo.vote_average,
                                           movieInfo.poster_path,
-                                          movieInfo.release
+                                          movieInfo.release_date
                                        );
                                        toggleHeart(movieInfo.id);
                                        setHeartState(true);
@@ -164,7 +164,7 @@ const Single = (match) => {
                               <div className="single-watchlist">
                                  <FaPlus
                                     size="1.5em"
-                                    color={togglePlus(movieInfo.id) == true ? "#4CB396" : "white"}
+                                    color={togglePlus(movieInfo.id) == true ? "#7995E6" : "white"}
                                     // Toggles the watchlist
                                     onClick={() => {
                                        addWatchlist(
@@ -172,7 +172,7 @@ const Single = (match) => {
                                           movieInfo.id,
                                           movieInfo.vote_average,
                                           movieInfo.poster_path,
-                                          movieInfo.release
+                                          movieInfo.release_date
                                        );
                                        togglePlus(movieInfo.id);
                                        setPlusState(true);

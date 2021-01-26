@@ -8,6 +8,7 @@ const Header = () => {
       const sidebar = document.body.querySelector("aside");
       sidebar.classList.toggle("sidebar-on");
    };
+
    return (
       <header>
          {/* Logo */}

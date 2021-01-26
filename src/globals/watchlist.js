@@ -1,10 +1,11 @@
 //* <-------- Add to Watchlist -------->
-export const addWatchlist = (title, id, rating, poster) => {
+export const addWatchlist = (title, id, rating, poster, release) => {
    const movieToBeAdded = {
       movieTitle: title,
       movieId: id,
       movieRating: rating,
       moviePoster: poster,
+      movieRelease: release,
    };
    //If Watchlist doesnt exist create it in local storage
    if (localStorage.Watchlist == undefined) {

@@ -75,7 +75,7 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
                      <FaPlus
                         size="1.1em"
                         color="black"
-                        color={plusState == true ? "#4CB396" : "black"}
+                        color={plusState == true ? "#7995E6" : "black"}
                         // Toggles the watchlist
                         onClick={() => {
                            addWatchlist(title, id, score, poster, release);
