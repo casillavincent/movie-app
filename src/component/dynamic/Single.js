@@ -100,7 +100,7 @@ const Single = (match) => {
                            <hr />
                            <ul className="header">
                               <li className="adult">
-                                 {movieInfo.adult == true ? "Rated-R" : "PG-13"}
+                                 {movieInfo.adult === true ? "Rated-R" : "PG-13"}
                               </li>
                               <li className="status">{movieInfo.status}</li>
                               <li className="runtime">{movieInfo.runtime + " min"}</li>
@@ -190,7 +190,7 @@ const Single = (match) => {
                   </div>
 
                   {/* <---------- Trailer -------------> */}
-                  {videos !== null && (
+                  {videos !== null && videos.results[0] !== undefined && (
                      <div className="trailer">
                         <h2 className="trailer-title">{videos.results[0].name}</h2>
                         <hr />
