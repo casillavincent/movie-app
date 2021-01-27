@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaPlus, FaHome, FaSearch, FaUserAstronaut } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-   //? <-------- utility for toggling the sidebar in mobile mode --------->
    const toggleSidebar = () => {
-      const sidebar = document.body.querySelector("aside");
-      sidebar.classList.toggle("sidebar-on");
+      const sidebar = document.querySelector("aside");
+      const footer = document.querySelector("footer");
+      sidebar.classList.toggle("sidebar-toggle");
+      footer.classList.toggle("footer-off");
    };
-
    return (
       <header>
          {/* Logo */}

@@ -7,16 +7,11 @@ footer {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
-   align-items: flex-start;
+   align-items: center;
    width: 100%;
-   height: 120px;
    font-weight: $text;
-
    @media screen and (min-width: 1050px) {
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
    }
    //* <---- All Columns ---->
    .column {
@@ -55,4 +50,7 @@ footer {
          }
       }
    }
+}
+.footer-off {
+   display: none;
 }
