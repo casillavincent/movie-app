@@ -35,14 +35,14 @@ body {
    transition: background-image 0.5s ease-out;
    .wrapper {
       width: inherit;
-      height: auto;
       background-color: rgba($col2, 0.9);
       backdrop-filter: $defBlur;
       margin: 0px;
       padding: 0px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      border: 1px solid transparent;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: flex-start;
    }
 }
 //! <--- Tablet --->

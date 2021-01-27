@@ -16,7 +16,7 @@ import NoPage from "./component/static/NoPage";
 
 function App() {
    return (
-      <Router>
+      <Router basename={"/butter-db"}>
          <React.Fragment>
             {/* All contents of the app will render inside the wrapper */}
             <Switch>
