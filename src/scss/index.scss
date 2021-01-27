@@ -32,7 +32,6 @@ body {
    @include backdrop-prop;
    background-color: $col1;
    transition: background-image 0.5s ease-out;
-   margin-bottom: 45px;
    .wrapper {
       width: inherit;
       background-color: rgba($col2, 0.9);
@@ -47,7 +46,6 @@ body {
 //! <--- Tablet --->
 @media screen and (min-width: 1050px) {
    body {
-      margin-bottom: 0px;
       .wrapper {
          width: 1000px;
          margin-left: auto;
