@@ -16,6 +16,7 @@
 @import "./static/about";
 @import "./dynamic/favourites";
 @import "./static/credits";
+@import "./static/no-page";
 html {
    * {
       margin: 0px;
@@ -34,6 +35,7 @@ body {
    transition: background-image 0.5s ease-out;
    .wrapper {
       width: inherit;
+      height: auto;
       background-color: rgba($col2, 0.9);
       backdrop-filter: $defBlur;
       margin: 0px;
@@ -46,8 +48,11 @@ body {
 //! <--- Tablet --->
 @media screen and (min-width: 1050px) {
    body {
+      margin-bottom: 0px;
       .wrapper {
          width: 1000px;
+         height: auto;
+
          margin-left: auto;
          margin-right: auto;
          margin-top: 100px;

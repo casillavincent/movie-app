@@ -6,7 +6,11 @@ const Header = () => {
    //? <-------- utility for toggling the sidebar in mobile mode --------->
    const toggleSidebar = () => {
       const sidebar = document.body.querySelector("aside");
+      const footerSelector = document.querySelector("footer");
       sidebar.classList.toggle("sidebar-on");
+
+      //Turn off footer when sidebar is on
+      footerSelector.classList.toggle("footer-off");
    };
 
    return (

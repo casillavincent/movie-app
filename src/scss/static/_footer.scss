@@ -9,15 +9,13 @@ footer {
    justify-content: space-around;
    align-items: flex-start;
    width: 100%;
-   height: 120px;
+   height: 125px;
    font-weight: $text;
-
    @media screen and (min-width: 1050px) {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
       align-items: center;
+      height: 75px;
    }
+
    //* <---- All Columns ---->
    .column {
       padding: 15px;
@@ -55,4 +53,8 @@ footer {
          }
       }
    }
+}
+//Toggle Footer Off for sidebar
+.footer-off {
+   display: none;
 }

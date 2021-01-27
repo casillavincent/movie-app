@@ -1,0 +1,34 @@
+@import "../globals.scss";
+.wrapper {
+   .page-not-found {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+         color: $accent;
+         margin-top: 15px;
+         font-size: 35px;
+      }
+      p {
+         color: white;
+         margin-top: 10px;
+      }
+      a {
+         text-decoration: none;
+         border: 1px solid white;
+         color: white;
+         padding: 10px 15px 10px 15px;
+         margin-top: 20px;
+         &:hover {
+            color: $accent;
+            border: 1px solid $accent;
+         }
+      }
+      @media screen and (min-width: 1050px) {
+         height: 50vh;
+      }
+   }
+}

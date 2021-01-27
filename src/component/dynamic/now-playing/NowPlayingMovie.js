@@ -67,7 +67,6 @@ const NowPlayingMovie = ({ title, score, id, poster, backdrop, release, overview
                         toggleHeart(id);
                         setHeartState(true);
                         if (heartState == true) {
-                           console.log("Removing Movie: " + title);
                            removeLikes(id);
                            setHeartState(false);
                         }

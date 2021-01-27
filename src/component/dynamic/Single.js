@@ -41,7 +41,6 @@ const Single = (match) => {
       const data_videos = await fetch(url);
       const response_videos = await data_videos.json();
       setVideos(response_videos);
-      // console.log(response_videos.results);
    };
 
    //! <----- Utility for changing the background to current movie on load ------>
@@ -64,7 +63,6 @@ const Single = (match) => {
    }, []);
 
    changeBackdropToCurrent();
-   console.log(movieInfo);
 
    //* <---------- Render Component Below ------------>
    return (
@@ -103,7 +101,7 @@ const Single = (match) => {
                               {movieInfo.title}{" "}
                            </h1>
                            <hr />
-                           {/* <ul className="header">
+                           <ul className="header">
                               <li className="adult">
                                  {movieInfo.adult === true ? "Rated-R" : "PG-13"}
                               </li>
@@ -113,7 +111,7 @@ const Single = (match) => {
                               <li className="language">
                                  {movieInfo.spoken_languages[0].english_name}
                               </li>
-                           </ul> */}
+                           </ul>
 
                            <h2 className="release">
                               <span>Release Date:</span> {formatDate(movieInfo.release_date)}

@@ -32,9 +32,13 @@ const Sidebar = () => {
    //? <---- utility for toggling sidebar on larger screens ---->
    const isDesktop = (e) => {
       const sidebar = document.querySelector("aside");
+      const footerSelector = document.querySelector("footer");
 
       if (e.matches) {
          sidebar.classList.add("sidebar-on");
+         if (footerSelector.classList.contains("footer-off")) {
+            footerSelector.classList.remove("footer-off");
+         }
       } else {
          if (sidebar.classList.contains("sidebar-on")) {
             sidebar.classList.remove("sidebar-on");

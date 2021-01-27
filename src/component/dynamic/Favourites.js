@@ -32,8 +32,6 @@ const Favourites = () => {
       fetchLocalStorage();
    }, []);
 
-   console.log(liked);
-   console.log(watchlist);
    return (
       <React.Fragment>
          <Header />
