@@ -46,6 +46,16 @@
                width: 400px;
                font-size: 13px;
                margin-bottom: 15px;
+               @media screen and (max-width: 499px) {
+                  width: 100%;
+                  li {
+                     font-size: 11px;
+                     width: 50px;
+                     overflow-x: hidden;
+                     white-space: nowrap;
+                     text-overflow: ellipsis;
+                  }
+               }
                li {
                   list-style-type: none;
                }
@@ -100,6 +110,9 @@
                align-items: center;
                width: 350px;
                margin: auto;
+               @media screen and (max-width: 499px) {
+                  width: 100%;
+               }
                .single-votes,
                .single-popularity,
                .single-like,

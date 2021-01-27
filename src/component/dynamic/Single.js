@@ -9,6 +9,10 @@ import { togglePlus } from "../../globals/plus";
 import { addLikes, removeLikes } from "../../globals/likes";
 import { addWatchlist, removeWatchlist } from "../../globals/watchlist";
 
+// Place holder for no poster or profile
+import noPoster from "../../images/blank-poster.jpg";
+import noProfile from "../../images/blank.svg";
+
 //Components
 import Header from "../static/Header";
 import Footer from "../static/Footer";
@@ -79,7 +83,7 @@ const Single = (match) => {
                         src={
                            movieInfo !== null && movieInfo.poster_path !== null
                               ? `${poster_base}${movieInfo.poster_path}`
-                              : `/assets/blank-poster.jpg`
+                              : `${noPoster}`
                         }
                         alt={movieInfo !== null && `${movieInfo.title}`}
                         width="250"
@@ -221,7 +225,7 @@ const Single = (match) => {
                                     <img
                                        src={
                                           person.profile_path == null
-                                             ? "/assets/blank.svg"
+                                             ? `${noProfile}`
                                              : `${poster_base}${person.profile_path}`
                                        }
                                        alt={person.name}

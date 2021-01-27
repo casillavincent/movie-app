@@ -27,11 +27,12 @@
          flex-direction: column;
          justify-content: center;
          align-items: center;
-         width: 400px;
+         width: 100%;
          margin: auto;
+         padding: 10px;
          h1 {
             font-weight: $subHeading;
-            font-size: 40px;
+            font-size: 35px;
             margin-bottom: 10px;
             color: $accent;
          }
@@ -51,8 +52,8 @@
             .now-playing,
             .favourites,
             .about {
-               width: 150px;
-               height: 150px;
+               width: 125px;
+               height: 125px;
                border: 2px solid white;
                display: flex;
                flex-direction: column;
@@ -60,6 +61,10 @@
                align-items: center;
                border-radius: 2px;
                transition: all 0.3s linear;
+               @media screen and (min-width: 499px) {
+                  width: 150px;
+                  height: 150px;
+               }
                // <--- links --->
                a {
                   text-decoration: none;

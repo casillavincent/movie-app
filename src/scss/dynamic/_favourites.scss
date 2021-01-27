@@ -114,6 +114,10 @@
                      border: 1px solid red;
                      color: red;
                      transition: all 0.15s ease-out;
+                     @media screen and (max-width: 499px) {
+                        margin-bottom: 10px;
+                        width: 125px;
+                     }
 
                      &:hover {
                         background-color: red;
@@ -124,6 +128,9 @@
                      border-style: none;
                      border: 1px solid lightgray;
                      color: slategray;
+                     @media screen and (max-width: 499px) {
+                        width: 125px;
+                     }
                   }
                }
             }
@@ -195,6 +202,10 @@
                         background-color: red;
                         color: white;
                      }
+                     @media screen and (max-width: 499px) {
+                        margin-bottom: 10px;
+                        width: 125px;
+                     }
                   }
                   .more-info {
                      border-style: none;
@@ -204,6 +215,9 @@
                      &:hover {
                         background-color: slategray;
                         color: white;
+                     }
+                     @media screen and (max-width: 499px) {
+                        width: 125px;
                      }
                   }
                }

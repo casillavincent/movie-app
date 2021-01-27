@@ -8,7 +8,10 @@
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
-
+   @media screen and (max-width: 499px) {
+      width: 275px;
+      margin: auto;
+   }
    //* Poster
    .poster {
       img {

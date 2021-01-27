@@ -10,6 +10,10 @@ import { addWatchlist, removeWatchlist } from "../../../globals/watchlist";
 import { toggleHeart } from "../../../globals/heart";
 import { togglePlus } from "../../../globals/plus";
 
+// Place holder for no poster or profile
+import noPoster from "../../../images/blank-poster.jpg";
+import noProfile from "../../../images/blank.svg";
+
 const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }) => {
    const [heartState, setHeartState] = useState(false);
    const [plusState, setPlusState] = useState(false);
@@ -41,7 +45,7 @@ const UpcomingMovie = ({ title, score, id, poster, backdrop, release, overview }
                   src={
                      poster !== null
                         ? `https://www.themoviedb.org/t/p/original${poster}`
-                        : "/assets/bank-poster.jpg"
+                        : `${noPoster}`
                   }
                   alt={title}
                />

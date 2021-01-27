@@ -27,6 +27,11 @@
       figcaption {
          margin-left: 20px;
          margin-bottom: 25px;
+         @media screen and (max-width: 499px) {
+            h2 {
+               font-size: 15px;
+            }
+         }
          h2 {
             font-weight: $heading;
             font-size: 20px;
@@ -83,6 +88,9 @@
       }
       .render-titles {
          display: grid;
+         @media screen and (max-width: 499px) {
+            grid-template-columns: 1fr;
+         }
          grid-template-columns: repeat(2, 1fr);
          grid-gap: 25px;
       }

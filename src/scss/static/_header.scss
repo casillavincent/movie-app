@@ -41,6 +41,9 @@ header {
       a {
          color: white;
       }
+      @media screen and (max-width: 499px) {
+         height: 55px;
+      }
    }
 }
 //! <--- Tablet --->

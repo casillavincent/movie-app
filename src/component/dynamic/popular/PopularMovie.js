@@ -8,6 +8,10 @@ import { toggleHeart } from "../../../globals/heart";
 import { togglePlus } from "../../../globals/plus";
 import { useState, useEffect } from "react";
 
+// Place holder for no poster or profile
+import noPoster from "../../../images/blank-poster.jpg";
+import noProfile from "../../../images/blank.svg";
+
 //* Manage Favourites
 import { addLikes, removeLikes } from "../../../globals/likes";
 import { addWatchlist, removeWatchlist } from "../../../globals/watchlist";
@@ -41,7 +45,7 @@ const PopularMovie = ({ title, score, id, poster, backdrop, release, overview })
                   src={
                      poster !== null
                         ? `https://www.themoviedb.org/t/p/original${poster}`
-                        : "/assets/bank-poster.jpg"
+                        : `${noPoster}`
                   }
                   alt={title}
                />{" "}
