@@ -11,6 +11,7 @@ import { formatDate } from "../../../globals/formatDate";
 const NowPlaying = () => {
    //! <-------- useState Variable -------->
    const [nowPlaying, setNowPlaying] = useState(null);
+
    //! <-------------- Fetch data --------->
    const fetchNowPlaying = async () => {
       const data_now_playing = await fetch(

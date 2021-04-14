@@ -9,9 +9,10 @@ import { useState, useEffect } from "react";
 import { formatDate } from "../../../globals/formatDate";
 
 const Popular = () => {
-   //! <-------- useState Variable -------->
+   // <-------- useState Variable -------->
    const [popularMovies, setPopularMovies] = useState(null);
-   //! <-------- Fetch data -------->
+
+   // <-------- Fetch data -------->
    const fetchPopularMovies = async () => {
       const data_popular = await fetch(
          `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=en-US&page=1`
@@ -20,7 +21,6 @@ const Popular = () => {
       setPopularMovies(response_popular.results);
    };
 
-   //! <-------- useEffect -------->
    useEffect(() => {
       fetchPopularMovies();
    }, []);
